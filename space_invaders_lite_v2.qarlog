@@ -1,0 +1,57 @@
+Quartus Prime Archive log --	C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/space_invaders_lite_v2.qarlog
+
+Archive:	C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/space_invaders_lite_v2.qar
+Date:		Tue Aug 17 19:24:34 2021
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/RGB_to_BGR.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alienMiddle.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrixBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_moveCollision.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_shot_stp.stp
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/back_ground_draw.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/credit_shmidth.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/player_hit_stp_auto_stripped.stp
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/game_controller.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/objects_mux.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_moveCollision.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alienstp.stp
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/keyCreditBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/player_hit_stp.stp
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/player_stp.stp
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/random.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/scoreBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/score_stp.stp
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/spaceInvadersBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/playerBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/playerLifeBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player_life_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player_moveCollision.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/smileyBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/smiley_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/smileyface_moveCollision.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/space_invaders_lite.qpf
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/space_invaders_lite.qsf
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/space_invaders_lite_assignment_defaults.qdf
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/square_object.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/life_credits/creditBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/one_sec_counter.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shot_moveCollision.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shots_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/score/score_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/credit_block.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/keyStartBitMap.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen_mux.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_controller.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_pll.sv
+C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/video_sync_generator.sv
+	======= Total: 46 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

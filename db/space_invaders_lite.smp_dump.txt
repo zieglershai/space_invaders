@@ -1,0 +1,8 @@
+
+State Machine - |DE10_LITE_Golden_Top|game_controller:game_cnt_inst|pres_st
+Name pres_st.sOver pres_st.sGame pres_st.sStart pres_st.sIdle pres_st.sNewGame 
+pres_st.sIdle 0 0 0 0 0 
+pres_st.sStart 0 0 1 1 0 
+pres_st.sGame 0 1 0 1 0 
+pres_st.sOver 1 0 0 1 0 
+pres_st.sNewGame 0 0 0 1 1 

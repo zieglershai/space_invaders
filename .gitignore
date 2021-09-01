@@ -1,0 +1,4 @@
+
+#compiled file and file git cannot read
+*.bak
+*.flock
