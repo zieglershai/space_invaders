@@ -1,17 +1,17 @@
-Fitter Status : Successful - Wed Sep 01 13:44:25 2021
+Fitter Status : Successful - Fri Sep 10 17:43:21 2021
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : space_invaders_lite
 Top-level Entity Name : DE10_LITE_Golden_Top
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 21,947 / 49,760 ( 44 % )
-    Total combinational functions : 21,600 / 49,760 ( 43 % )
-    Dedicated logic registers : 1,686 / 49,760 ( 3 % )
-Total registers : 1686
-Total pins : 185 / 360 ( 51 % )
+Total logic elements : 25,668 / 49,760 ( 52 % )
+    Total combinational functions : 25,423 / 49,760 ( 51 % )
+    Dedicated logic registers : 1,561 / 49,760 ( 3 % )
+Total registers : 1561
+Total pins : 87 / 360 ( 24 % )
 Total virtual pins : 0
-Total memory bits : 147,456 / 1,677,312 ( 9 % )
+Total memory bits : 24,576 / 1,677,312 ( 1 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
 Total PLLs : 1 / 4 ( 25 % )
 UFM blocks : 0 / 1 ( 0 % )

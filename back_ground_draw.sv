@@ -16,9 +16,10 @@ module	back_ground_draw	(
 const int	xFrameSize	=	635;
 const int	yFrameSize	=	475;
 const int	bracketOffset =	30;
-const int   COLOR_MARTIX_SIZE  = 16*8 ; // 128 
+//const int   COLOR_MARTIX_SIZE  = 16*8 ; // 128 unuesed
 
-logic [2:0] redBits;
+//unused consts
+/*logic [2:0] redBits;
 logic [2:0] greenBits;
 logic [1:0] blueBits;
 logic [10:0] shift_pixelX;
@@ -32,10 +33,10 @@ localparam  int RED_TOP_Y  = 156 ;
 localparam  int RED_LEFT_X  = 256 ;
 localparam  int GREEN_RIGHT_X  = 32 ;
 localparam  int BLUE_BOTTOM_Y  = 300 ;
-localparam  int BLUE_RIGHT_X  = 200 ;
+localparam  int BLUE_RIGHT_X  = 200 ;*/
  
-parameter  logic [10:0] COLOR_MATRIX_TOP_Y  = 30 ; 
-parameter  logic [10:0] COLOR_MATRIX_LEFT_X = 30 ;
+/*parameter  logic [10:0] COLOR_MATRIX_TOP_Y  = 30 ; 
+parameter  logic [10:0] COLOR_MATRIX_LEFT_X = 30 ;*/
 
  
 
@@ -52,26 +53,26 @@ parameter  logic [10:0] COLOR_MATRIX_LEFT_X = 30 ;
 always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
-				redBits <= DARK_COLOR ;	
+				/*redBits <= DARK_COLOR ;	
 				greenBits <= DARK_COLOR  ;	
-				blueBits <= DARK_COLOR ;	 
+				blueBits <= DARK_COLOR ;*/	 
 	end 
 	else begin
 
 	// defaults 
-		greenBits <= 3'b110 ; 
+		/*greenBits <= 3'b110 ; 
 		redBits <= 3'b010 ;
-		blueBits <= LIGHT_COLOR;
-		boardersDrawReq <= 	1'b0 ; 
+		blueBits <= LIGHT_COLOR;*/ 
+		boardersDrawReq <= 	1'b0 ;
 
 					
 	// draw the yellow borders 
-		if (pixelX == 0 || pixelY == 0  || pixelX == xFrameSize || pixelY == yFrameSize)
+		/*if (pixelX == 0 || pixelY == 0  || pixelX == xFrameSize || pixelY == yFrameSize)
 			begin 
 				redBits <= DARK_COLOR ;	
 				greenBits <= DARK_COLOR ;	
 				blueBits <= LIGHT_COLOR ;	// 3rd bit will be truncated
-			end
+			end*/
 		// draw  four lines with "bracketOffset" offset from the border 
 		
 		if (        pixelX == bracketOffset ||
@@ -79,9 +80,9 @@ begin
 						pixelX == (xFrameSize-bracketOffset) || 
 						pixelY == (yFrameSize-bracketOffset)) 
 			begin 
-					redBits <= DARK_COLOR ;	
+					/*redBits <= DARK_COLOR ;	
 					greenBits <= DARK_COLOR  ;	
-					blueBits <= DARK_COLOR ;
+					blueBits <= DARK_COLOR ;*/
 					boardersDrawReq <= 	1'b1 ; // pulse if drawing the boarders 
 			end
 	
@@ -92,7 +93,7 @@ begin
 	// 3.  draw red rectangle at the bottom right,  green on the left, and blue on top left 
 	//-------------------------------------------------------------------------------------
 		
-		if (pixelY > RED_TOP_Y && pixelX >= RED_LEFT_X ) // rectangles on part of the screen 
+		/*if (pixelY > RED_TOP_Y && pixelX >= RED_LEFT_X ) // rectangles on part of the screen 
 				redBits <= DARK_COLOR ; 
 				 
 	
@@ -103,10 +104,10 @@ begin
 					blueBits <= 2'b10  ; 
 
 				
-
+	*/
 	// 4. draw a matrix of 16*16 rectangles with all the colors, each rectsangle 8*8 pixels  	
    // ---------------------------------------------------------------------------------------
-		if (( pixelY > 8 ) && (pixelY < 24 ) && (pixelX >30 )&& (pixelX <542 ))
+		/*if (( pixelY > 8 ) && (pixelY < 24 ) && (pixelX >30 )&& (pixelX <542 ))
 		 begin
 		        shift_pixelX<= pixelX-29;
 
@@ -129,7 +130,7 @@ begin
 //    
 //				
 //		end	
-
+*/
 		
 	BG_RGB =  {3'b000 , 3'b000  , 2'b00 } ; //collect color nibbles to an 8 bit word 
 			

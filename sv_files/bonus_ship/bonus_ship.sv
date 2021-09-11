@@ -23,7 +23,7 @@ wire [10:0] bonusShipOffsetX;
 wire [10:0] bonusShipOffsetY;
 
 wire bonus_shipRecDR;
-wire [10:0] o_rnd;
+wire [9:0] o_rnd;
 
 wire playGame;
 wire alive;
@@ -42,8 +42,8 @@ random
 rnd_inst ( 
 				.clk(clk),
 				.resetN(resetN), 
-				.rise(bottomaAlien),
-				.dout(o_rand)	
+				.rise(rise),
+				.dout(o_rnd)	
 );
 
 
@@ -63,7 +63,7 @@ bonus_mov_inst(
 				.alienMatrixYPosition(alienMatrixYPosition) ,
 				.pixelX(pixelX),
 				.pixelY(pixelY),
-				.randX(o_rand),
+				.randX(o_rnd),
 				.playGame(playGame),
 				.topLeftX(bonus_shipTLX), // output the top left corner 
 				.topLeftY(bonus_shipTLY),  // can be negative , if the object is partliy outside 

@@ -97,7 +97,7 @@ begin
 		
 		if (t_sec && !secFlag && curr_t_sec)begin
 			secFlag <= 1;
-			curr_t_sec <= curr_t_sec - 1;
+			curr_t_sec <= curr_t_sec - 11'b1;
 		end
 		else if(!t_sec && secFlag) begin
 			secFlag <= 0;

@@ -6,8 +6,8 @@ module titles_block(
 					input standBy,
 					input [10:0] pixelX,
 					input [10:0] pixelY,
-					output [7:0] debug, // for debuging porpurse
-					output debug_dr,
+					//output [7:0] debug, // for debuging porpurse
+					//output debug_dr,
 					output titlesDR,
 					output [7:0] titlesRGB
 
@@ -51,7 +51,7 @@ highScoreTitleBitMap highScore_map_inst	(
 					.offsetY(high_sq_inst_offsetY),
 					.InsideRectangle(high_sq_RecDR), //input that the pixel is within a bracket 
 					.drawingRequest(highDR), //output that the pixel should be dispalyed 
-					.RGBout(highRGB),
+					.RGBout(highRGB)
 );
 
 
@@ -63,10 +63,11 @@ wire scoreDR;
 wire [7:0] scoreRGB;
 
 
-
-assign debug = scoreRGB;
+// unnecessry debugs wires
+/*assign debug = scoreRGB;
 assign debug1 = debug;
 assign debug_dr = scoreDR;
+*/
 
 square_object 	#(
 			.OBJECT_WIDTH_X(64), //dec
@@ -94,7 +95,7 @@ scoreTitleBitMap scorecore_map_inst	(
 					.offsetY(score_sq_inst_offsetY),
 					.InsideRectangle(score_sq_RecDR), //input that the pixel is within a bracket 
 					.drawingRequest(scoreDR), //output that the pixel should be dispalyed 
-					.RGBout(scoreRGB),
+					.RGBout(scoreRGB)
 );
 
 
@@ -132,7 +133,7 @@ creditsTitleBitMap credit_map_inst	(
 					.offsetY(credit_sq_inst_offsetY),
 					.InsideRectangle(credit_sq_RecDR), //input that the pixel is within a bracket 
 					.drawingRequest(creditDR), //output that the pixel should be dispalyed 
-					.RGBout(creditRGB),
+					.RGBout(creditRGB)
 );
 
 
@@ -171,7 +172,7 @@ livesTitleBitMap lives_map_inst	(
 					.InsideRectangle(lives_sq_RecDR), //input that the pixel is within a bracket
 					.playGame(playGame), // game mode
 					.drawingRequest(livesDR), //output that the pixel should be dispalyed 
-					.RGBout(livesRGB),
+					.RGBout(livesRGB)
 );
 
 titles_mux title_mux_inst(

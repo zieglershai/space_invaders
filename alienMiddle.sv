@@ -29,8 +29,8 @@ localparam  int OBJECT_NUMBER_OF_X_BITS = 5;  // 2^5 = 32
 
 // decide if to draw the pixel or not 
 always_comb begin
-alienMiddleX =  alienMatrixTLX + ((offsetX[10:5])<< OBJECT_NUMBER_OF_X_BITS) + 16;
-alienMiddleY =  alienMatrixTLY + ((offsetY[10:5])<< OBJECT_NUMBER_OF_Y_BITS) + 16;
+alienMiddleX =  alienMatrixTLX + ((offsetX[10:5])<< OBJECT_NUMBER_OF_X_BITS) + 11'd16;
+alienMiddleY =  alienMatrixTLY + ((offsetY[10:5])<< OBJECT_NUMBER_OF_Y_BITS) + 11'd16;
 
 		
 end

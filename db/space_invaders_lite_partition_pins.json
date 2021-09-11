@@ -16,7 +16,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[4]",
+					"name" : "LEDR[3]",
 					"strict" : false
 				},
 				{
@@ -76,35 +76,35 @@
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[0]",
+					"name" : "GPIO[9]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[1]",
+					"name" : "GPIO[11]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[2]",
+					"name" : "GPIO[13]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[3]",
+					"name" : "GPIO[25]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[4]",
+					"name" : "GPIO[29]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[8]",
+					"name" : "GPIO[31]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[9]",
+					"name" : "GPIO[33]",
 					"strict" : false
 				},
 				{
-					"name" : "ARDUINO_IO[10]",
+					"name" : "GPIO[35]",
 					"strict" : false
 				},
 				{

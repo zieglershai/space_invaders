@@ -41,16 +41,18 @@ module	bonusShip_moveCollision	#(
 
 
 
-const int  Y_ACCEL = 0;//-1;
+//const int  Y_ACCEL = 0;//-1; unused
 
 const int	FIXED_POINT_MULTIPLIER	=	64;
 // FIXED_POINT_MULTIPLIER is used to enable working with integers in high resolution so that 
 // we do all calculations with topLeftX_FixedPoint to get a resolution of 1/64 pixel in calcuatuions,
 // we devide at the end by FIXED_POINT_MULTIPLIER which must be 2^n, to return to the initial proportions
-const int	x_FRAME_SIZE	=	639 * FIXED_POINT_MULTIPLIER; // note it must be 2^n 
+
+//unused
+/*const int	x_FRAME_SIZE	=	639 * FIXED_POINT_MULTIPLIER; // note it must be 2^n 
 const int	y_FRAME_SIZE	=	479 * FIXED_POINT_MULTIPLIER;
 const int	bracketOffset =	30;
-const int   OBJECT_WIDTH_X = 64;
+const int   OBJECT_WIDTH_X = 64;*/
 
 int Xspeed; // local parameters 
 int Yspeed;
@@ -60,14 +62,15 @@ int topLeftX_FixedPoint, topLeftY_FixedPoint;
 
 
 one_sec_counter one_sec_counter ( .clk(clk), .resetN(resetN),.turbo(0), .one_sec(t_sec), .duty50() );
+logic t_sec ; // wire was created at compilition added on 08/09 
 logic [10:0] curr_t_sec;
 logic [10:0] nxt_t_sec;
 logic secFlag;
-logic [10:0] xDest;
 logic rightFlag;
 logic leftFlag;
 logic endTravel;
 
+assign Yspeed	= INITIAL_Y_SPEED; // 09/09 - doesnt changed in this unit
 
 //////////--------------------------------------------------------------------------------------------------------------=
 //  calculation X Axis speed using and position calculate regarding X_direction key or  colision
@@ -75,12 +78,11 @@ always_ff@(posedge clk or negedge playGame or negedge resetN)
 begin
 	if(!resetN || !playGame) //resetN
 	begin
-		Yspeed	<= INITIAL_Y_SPEED;
+		//Yspeed	<= INITIAL_Y_SPEED; // moved to combed part as its not changed
 		Xspeed	<= INITIAL_X_SPEED;
 		topLeftX_FixedPoint	<= INITIAL_X * FIXED_POINT_MULTIPLIER;
 		topLeftY_FixedPoint	<= INITIAL_Y * FIXED_POINT_MULTIPLIER;
 		alive <= 0;
-		xDest <= 0;
 		rightFlag <= 1;
 		leftFlag <= 0;
 		curr_t_sec <= 3;
@@ -95,7 +97,6 @@ begin
 			alive <= 1;
 			topLeftX_FixedPoint	<= INITIAL_X * FIXED_POINT_MULTIPLIER;
 			topLeftY_FixedPoint	<= INITIAL_Y * FIXED_POINT_MULTIPLIER;
-			xDest <= randX;
 			rightFlag <= 1;
 			leftFlag <= 0;
 			limitX <= randX;
@@ -114,7 +115,7 @@ begin
 		else if (alive && (Xspeed == 0))begin // wait 3 sec
 			if (t_sec && !secFlag)begin
 				secFlag <= 1;
-				curr_t_sec <= curr_t_sec - 1;
+				curr_t_sec <= curr_t_sec - 11'b1;
 			end
 			else if(!t_sec && secFlag) begin
 				secFlag <= 0;
@@ -150,8 +151,8 @@ begin
 end
 
 //get a better (64 times) resolution using integer   
-assign topLeftX = topLeftX_FixedPoint / FIXED_POINT_MULTIPLIER ;   // note it must be 2^n 
-assign topLeftY = topLeftY_FixedPoint / FIXED_POINT_MULTIPLIER ;
+assign topLeftX = topLeftX_FixedPoint [16:6];   // note it must be 2^n 
+assign topLeftY = topLeftY_FixedPoint [16:6] ; // divide by 64 and match 11 bits of top left
 	
 		
 

@@ -29,8 +29,8 @@ wire VGA_CLK_n;
 wire [7:0] index;
 wire [23:0] bgr_data_raw;
 wire cBLANK_n,cHS,cVS,rst;
-wire [10:0] pixelX;
-wire [9:0] pixelY;
+//wire [10:0] pixelX; // declared as output no need to declare here
+//wire [9:0] pixelY; // declared as output no need to declare here
 ////
 assign rst = ~iRST_n;
 
@@ -49,7 +49,7 @@ begin
   if (!iRST_n)
      ADDR<=19'd0;
   else if (cBLANK_n==1'b1)
-     ADDR<=ADDR+1;
+     ADDR<=ADDR+19'd1;
 	  else
 	    ADDR<=19'd0;
 end
@@ -137,12 +137,12 @@ reg [18:0] H_Cont/*synthesis noprune*/;
 always@(posedge iVGA_CLK,negedge iRST_n)
 begin
   if (!iRST_n)
-     H_Cont<=19'd0;
-  else if (mHS==1'b1)
-     H_Cont<=H_Cont+1;
+     H_Cont<= 19'd0;
+  else if (mHS == 1'b1)
+     H_Cont <= H_Cont + 19'd1;
 	  else
-	    H_Cont<=19'd0;
+	    H_Cont <= 19'd0;
 end
 
-assign startOfFrame = pixelX == 640 && pixelY == 480; 
+assign startOfFrame = pixelX == 11'd640 && pixelY == 11'd480; 
 endmodule

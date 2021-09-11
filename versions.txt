@@ -1,0 +1,29 @@
+v4:
+
+sound work fine -with shooting
+no more glitches as assignedgpio to pull up
+
+v5:
+
+remove warnning from:
+game over bit map
+clock divde
+vga controller
+bonus ship move collision
+bonus ship
+end dcreen
+game controller
+title block
+sync generator and more
+
+v6:
+
+remove warnning from:
+sync generator and more
+aliien metrix move collision
+alien metrix bit map
+alien middle
+player move collisoion
+bonus ship
+alien shot
+player shot

@@ -6,6 +6,8 @@ module I2S
 		input onOff,
 		input MCLK,
 		input nReset,
+		input new_shot,
+		input player_fire_collision,
 		output LRCLK,
 		output SCLK,
 		output SD
@@ -14,20 +16,28 @@ module I2S
 typedef enum {State_Reset, State_WaitForReady, State_IncreaseAddress, State_WaitForStart} State_t;
 State_t CurrentState;
 wire [2 * WIDTH - 1 : 0] Tx;
-wire [WIDTH - 1 : 0] ROM_Data;
-wire [6:0] ROM_Address;
+//wire [WIDTH - 1 : 0] ROM_Data; using dout instead
+//wire [6:0] ROM_Address; // using wordcounter instead
 wire Ready;
 wire Clock_Audio;
     
 wire [17:0] depth; // nums of row in the ROM
-wire [31:0] Counter; // counter for creating audio clock
-wire [31:0] debug_counter; // debugging wire
+//wire [31:0] Counter; // counter for creating audio clock - using clock divider instead
+//wire [31:0] debug_counter; // debugging wire
 wire [31:0] WordCounter ;
 wire [15:0] dout; // for output of the semi ROM
 wire [31:0] repeatCounter ; // counter for how much repeats for each tone
 wire [31:0] repeats; // how many time repeat each tone
+wire [3:0] select;
 
 
+clock_divide_N clock_divide_19( 
+
+	.ref_clk(MCLK), 
+   .nReset(nReset), 
+	.clk_out(Clock_Audio) );
+	
+	
 I2S_Transmitter #(
     .WIDTH(WIDTH)
 )
@@ -51,6 +61,7 @@ I2S_Transmitter #(
 semi_ROM semi_ROM_inst(
 		.clk(MCLK),
 		.resetN(nReset),
+		.select(select)//////////////need to be chosen
 		.adress(WordCounter), // for future purpose
 		.dout(dout),
 		.depth(depth),
@@ -64,20 +75,23 @@ always_ff @(posedge MCLK, negedge nReset) begin
 			WordCounter <= 0;
         CurrentState <= State_Reset;
         Tx <= 0;
-        ROM_Data <= 0;
-        ROM_Address  <= 0;
-        Clock_Audio  <= 0;
+		  select <= 4'd0;
+        //ROM_Data <= 0; using dout instead
+        //ROM_Address  <= 0; // using wordcounter instead
+        //Clock_Audio  <= 0;
 		  repeatCounter <= 0;
     end
     else begin
-        if(Counter < ((RATIO / 2) - 1)) begin
+        // used to create 44.1 khz clock here and it was moved to clock_divide_19 inst
+		  /*if(Counter < ((RATIO / 2) - 1)) begin
             Counter <= Counter + 1;
         end
         else begin
             Counter <= 0;
             Clock_Audio <= ~ Clock_Audio;
         end
-
+		  */
+		  select <= 4'd0;
         case (CurrentState)
             State_Reset :begin
                 WordCounter <= 0;
@@ -125,6 +139,23 @@ always_ff @(posedge MCLK, negedge nReset) begin
     end
 end
 
-assign debug_counter = Counter; // for debugging
+//assign debug_counter = Counter; // for debugging
+/*always_comb begin 
+	case (CurrentState)
+		State_WaitForReady : begin
+			if (player_fire_collision) begin
+				select = 4'd1;
+			end
+			else if (new_shot) begin
+				select = 4'd2;
+			end
+			else begin
+				select = 4'd0;
+			end
+		end
 
+
+	endcase
+
+end*/
 endmodule

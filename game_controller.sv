@@ -40,7 +40,7 @@ module game_controller	(
 
 			
 );
-
+wire collision_alien_player;
 logic collision;
 assign collision_alien_boarder = ( drawing_request_alienMatrix &&  drawing_request_boarders );
 assign collision_alien_player = ( drawing_request_alienMatrix &&  drawing_request_player );
@@ -98,10 +98,10 @@ begin
 	
 	
 	if (collision_fire_bonusShip == 1 && scoreUpdate == 0 ) begin
-					scoreUpdate <= 100;
+					scoreUpdate <= 8'd100;
 	end
 	if (collision_fire_alien == 1 && scoreUpdate == 0 ) begin
-					scoreUpdate <= 10 * alienType;
+					scoreUpdate <= 8'd10 * alienType;
 	end
 	if (scoreUpdate != 0)begin
 			scoreUpdate <= 0;
@@ -154,23 +154,23 @@ always_comb begin
 		
 		sGame: begin
 			standBy = 0;
-			nxt_endScreenTime = 15;
+			nxt_endScreenTime = 6'd15;
 			if (gameLose || collision_alien_player) begin
 				next_st = sOver;
 			end
 		end
 		
 		sOver: begin
-			gameEnded = 1;
-			standBy = 0;
+			gameEnded = 1'b1;
+			standBy = 1'b0;
 			if (t_sec && !secflag) begin
-				secflag = 1;
-				nxt_endScreenTime = cur_endScreenTime - 1;
+				secflag = 1'b1;
+				nxt_endScreenTime = cur_endScreenTime - 6'b1;
 			end
 			else if(!t_sec && secflag) begin
-				secflag = 0;
+				secflag = 1'b0;
 			end
-			if (cur_endScreenTime <= 0) begin
+			if (cur_endScreenTime <= 1'b0) begin
 				next_st = sIdle;
 			end
 			else if (!keyStartN && credits) begin
@@ -179,9 +179,9 @@ always_comb begin
 		end
 		
 		sNewGame: begin
-			startGame = 1;
-			standBy = 0;
-			gameEnded = 1;
+			startGame = 1'b1;
+			standBy = 1'b0;
+			gameEnded = 1'b1;
 			if (keyStartN) begin
 				next_st = sGame;
 			end

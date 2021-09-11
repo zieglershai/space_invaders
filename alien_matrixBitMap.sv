@@ -28,8 +28,10 @@ module	alien_matrixBitMap	(
 // this is the devider used to acess the right pixel 
 localparam  int OBJECT_NUMBER_OF_Y_BITS = 5;  // 2^5 = 32 
 localparam  int OBJECT_NUMBER_OF_X_BITS = 5;  // 2^5 = 32 
-const int ALIEN_WIDTH = 32;
-const int ALIEN_HIGHT = 32;
+
+// never was read
+/*const int ALIEN_WIDTH = 32;
+const int ALIEN_HIGHT = 32;*/
 
 localparam  int OBJECT_HEIGHT_Y = 1 <<  OBJECT_NUMBER_OF_Y_BITS ;
 localparam  int OBJECT_WIDTH_X = 1 <<  OBJECT_NUMBER_OF_X_BITS;
@@ -231,7 +233,7 @@ begin
 	else begin
 		
 		if (startOfFrame) begin
-			frameCounter <= frameCounter + 1;
+			frameCounter <= frameCounter + 7'b1;
 		end
 	
 		RGBout <= TRANSPARENT_ENCODING ; // default  
@@ -268,36 +270,36 @@ end
 // decide if to draw the pixel or not 
 assign drawingRequest = (RGBout != TRANSPARENT_ENCODING ) ? 1'b1 : 1'b0 ; // get optional transparent command from the bitmpap
 always_comb begin
-		if (offsetY[8:5] == 3 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 0)begin
-			 firstRow = 1;
-			 seconedRow = 0;
-			 thirdRow = 0;
-			 forthRow = 0;
+		if (offsetY[8:5] == 3'd3 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 1'b0)begin
+			 firstRow = 1'b1;
+			 seconedRow = 1'b0;
+			 thirdRow = 1'b0;
+			 forthRow = 1'b0;
 		end
-		else if (offsetY[8:5] == 2 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 0)begin
-			 firstRow = 0;
-			 seconedRow = (MazeBiMapMask[3][offsetX[8:5]] == 0) ? 1 : 0;
-			 thirdRow = 0;
-			 forthRow = 0;
+		else if (offsetY[8:5] == 3'd2 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 1'b0)begin
+			 firstRow = 1'b0;
+			 seconedRow = (MazeBiMapMask[3][offsetX[8:5]] == 1'b0) ? 1'b1 : 1'b0;
+			 thirdRow = 1'b0;
+			 forthRow = 1'b0;
 			 
 		end
-		else if (offsetY[8:5] == 1 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 0)begin
-			 firstRow = 0;
-			 seconedRow = 0;
-			 thirdRow = ((MazeBiMapMask[3][offsetX[8:5]] == 0) && (MazeBiMapMask[2][offsetX[8:5]] == 0)) ? 1 : 0;
-			 forthRow = 0;
+		else if (offsetY[8:5] == 1'b1 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 1'b0)begin
+			 firstRow = 1'b0;
+			 seconedRow = 1'b0;
+			 thirdRow = ((MazeBiMapMask[3][offsetX[8:5]] == 1'b0) && (MazeBiMapMask[2][offsetX[8:5]] == 1'b0)) ? 1'b1 : 1'b0;
+			 forthRow = 1'b0;
 		end
-		else if (offsetY[8:5] == 0 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 0)begin
-			firstRow = 0;
-			 seconedRow = 0;
-			 thirdRow = 0;
-			 forthRow = ((MazeBiMapMask[3][offsetX[8:5]] == 0) && (MazeBiMapMask[2][offsetX[8:5]] == 0) && (MazeBiMapMask[1][offsetX[8:5]] == 0)) ? 1 : 0;
+		else if (offsetY[8:5] == 1'b0 && MazeBiMapMask[offsetY[8:5]][offsetX[8:5]] != 1'b0)begin
+			firstRow = 1'b0;
+			 seconedRow = 1'b0;
+			 thirdRow = 1'b0;
+			 forthRow = ((MazeBiMapMask[3][offsetX[8:5]] == 1'b0) && (MazeBiMapMask[2][offsetX[8:5]] == 1'b0) && (MazeBiMapMask[1][offsetX[8:5]] == 1'b0)) ? 1'b1 : 1'b0;
 		end
 		else begin
-			 firstRow = 0;
-			 seconedRow = 0;
-			 thirdRow = 0;
-			 forthRow = 0;		
+			 firstRow = 1'b0;
+			 seconedRow = 1'b0;
+			 thirdRow = 1'b0;
+			 forthRow = 1'b0;		
 			 end
 
 		

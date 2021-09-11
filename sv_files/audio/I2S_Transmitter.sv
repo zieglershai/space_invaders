@@ -23,7 +23,6 @@ wire Enable;
 wire [4:0] flag;
 
 wire [31:0] BitCounter;
-wire LRCLK_delayed; // check if lrclk need to be delayed
 wire SD_delayed; // check if lrclk need to be delayed
 
 
@@ -100,7 +99,6 @@ always_ff @(negedge Clock, negedge nReset) begin // SCLK negative edge trigger
 	
 	//optional state machine
 	else begin
-		LRCLK_delayed <= LRCLK_Int;
 		SD_delayed <= SD_Int;
 		case (CurrentState) 
 			State_Reset : begin
@@ -163,7 +161,6 @@ always_comb begin
     Ready = Ready_Int;
     SCLK = Clock & Enable & onOff; 
     LRCLK = LRCLK_Int;// lrclk not dealayed
-	 //LRCLK = LRCLK_delayed;// lrclk one cycle dealayed
 	 
     //SD = SD_Int;// sd without delay
 	 SD = SD_delayed; // sd with delay

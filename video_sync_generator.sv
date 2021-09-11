@@ -52,11 +52,11 @@ output [10:0] pixelY;
 *////////////////////////////////////////////
 ////////////////////////                          
 //parameter
-parameter hori_line  = 800;                           
-parameter hori_back  = 144;
+parameter [10:0] hori_line  = 800;                           
+parameter [10:0] hori_back  = 144;
 parameter hori_front = 16;
-parameter vert_line  = 525;
-parameter vert_back  = 34;
+parameter [10:0] vert_line  = 525;
+parameter [10:0] vert_back  = 34;
 parameter vert_front = 11;
 parameter H_sync_cycle = 96;
 parameter V_sync_cycle = 2;
@@ -64,9 +64,9 @@ parameter H_BLANK = hori_front+H_sync_cycle ; //add by yang
 
 //////////////////////////
 reg [10:0] h_cnt;
-reg [9:0]  v_cnt;
+reg [10:0]  v_cnt;
 wire cHD,cVD,cDEN,hori_valid,vert_valid;
-wire [11:0] pixelX_temp;                       
+wire [10:0] pixelX_temp;                       
 
 ///////
 always@(negedge vga_clk,posedge reset)
@@ -74,20 +74,20 @@ begin
   if (reset)
   begin
      h_cnt<=11'd0;
-     v_cnt<=10'd0;
+     v_cnt<=11'd0;
   end
     else
     begin
-      if (h_cnt==hori_line-1)
+      if (h_cnt == hori_line - 11'b1)
       begin 
-         h_cnt<=11'd0;
-         if (v_cnt==vert_line-1)
-            v_cnt<=10'd0;
+         h_cnt<= 11'd0;
+         if (v_cnt == vert_line - 11'b1)
+            v_cnt <= 11'd0;
          else
-            v_cnt<=v_cnt+1;
+            v_cnt<=v_cnt + 11'd1;
       end
       else
-         h_cnt<=h_cnt+1;
+         h_cnt<=h_cnt + 11'b1;
 			
 		pixelX_temp = h_cnt - hori_back ;
 		pixelX[10:0]  = pixelX_temp[10:0];

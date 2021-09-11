@@ -34,27 +34,35 @@ module	alien_shot_moveCollision	(
 logic [0:1] alive;
 parameter int INITIAL_X = 32;
 parameter int INITIAL_Y = 32;
-parameter int INITIAL_X_SPEED = 40;
+parameter int INITIAL_X_SPEED = 0;
 parameter int INITIAL_Y_SPEED =  80;
 parameter int MAX_Y_SPEED = 230;
-const int ALIEN_ROW = 4;
+
+//unused values
+/*const int ALIEN_ROW = 4;
 const int ALIEN_COLUMN = 8; 
-const int  Y_ACCEL = 0;//-1;
+const int  Y_ACCEL = 0;//-1;*/
 
 const int	FIXED_POINT_MULTIPLIER	=	64;
 // FIXED_POINT_MULTIPLIER is used to enable working with integers in high resolution so that 
 // we do all calculations with topLeftX_FixedPoint to get a resolution of 1/64 pixel in calcuatuions,
 // we devide at the end by FIXED_POINT_MULTIPLIER which must be 2^n, to return to the initial proportions
-const int	x_FRAME_SIZE	=	639 * FIXED_POINT_MULTIPLIER; // note it must be 2^n 
+
+//unused values
+/*const int	x_FRAME_SIZE	=	639 * FIXED_POINT_MULTIPLIER; // note it must be 2^n 
 const int	y_FRAME_SIZE	=	479 * FIXED_POINT_MULTIPLIER;
 const int	bracketOffset =	30;
-const int   OBJECT_WIDTH_X = 64;
+const int   OBJECT_WIDTH_X = 64;*/
 
-int Xspeed; // local parameters 
-int Yspeed;
-logic [0:1] [20:0] topLeftX_FixedPoint;
-logic [0:1] [20:0] topLeftY_FixedPoint;
+logic [31:0] Xspeed; // local parameters 
+logic [31:0] Yspeed;
+logic [0:1] [31:0] topLeftX_FixedPoint;
+logic [0:1] [31:0] topLeftY_FixedPoint;
 logic flag;
+
+assign Yspeed	= INITIAL_Y_SPEED;
+assign Xspeed	= INITIAL_X_SPEED;
+
 
 //////////--------------------------------------------------------------------------------------------------------------=
 //  calculation X Axis speed using and position calculate regarding X_direction key or  colision
@@ -63,8 +71,8 @@ begin
 	if(!resetN || !playGame)
 	begin
 		// for each reset initilazie all vars
-		Yspeed	<= INITIAL_Y_SPEED;
-		Xspeed	<= 0;
+		//Yspeed	<= INITIAL_Y_SPEED; doesn't changed was moved to comb part
+		//Xspeed	<= 0;
 		topLeftX_FixedPoint[0]	<= INITIAL_X * FIXED_POINT_MULTIPLIER;
 		topLeftY_FixedPoint[0]	<= INITIAL_Y * FIXED_POINT_MULTIPLIER;
 		topLeftX_FixedPoint[1]	<= INITIAL_X * FIXED_POINT_MULTIPLIER;
@@ -115,15 +123,15 @@ always_comb begin
 	if ((topLeftY_FixedPoint[1]/ FIXED_POINT_MULTIPLIER <= pixelY) && (topLeftY_FixedPoint[1]/ FIXED_POINT_MULTIPLIER + 16 >= pixelY) 
 		&& (topLeftX_FixedPoint[1]/ FIXED_POINT_MULTIPLIER <= pixelX) && (topLeftX_FixedPoint[1]/ FIXED_POINT_MULTIPLIER + 2 >= pixelX) )
 		begin	// if we are in fire[0] xone
-			topLeftX = topLeftX_FixedPoint[1] / FIXED_POINT_MULTIPLIER ;   // note it must be 2^n 
-			topLeftY = topLeftY_FixedPoint[1] / FIXED_POINT_MULTIPLIER ;
+			topLeftX = topLeftX_FixedPoint[1] [16:6] ;   // note it must be 2^n 
+			topLeftY = topLeftY_FixedPoint[1] [16:6] ;	// divide by 64 and match 11 bits of top left
 			fireAlive =  alive[1];
 	
 		
 	end
 	else begin // if we are in fire[0] zone
-	 topLeftX = topLeftX_FixedPoint[0] / FIXED_POINT_MULTIPLIER ;   // note it must be 2^n 
-	 topLeftY = topLeftY_FixedPoint[0]/ FIXED_POINT_MULTIPLIER ; 
+	 topLeftX = topLeftX_FixedPoint[0][16:6] ;   // note it must be 2^n 
+	 topLeftY = topLeftY_FixedPoint[0][16:6]  ; 
 	 fireAlive = alive[0];
 
 	end

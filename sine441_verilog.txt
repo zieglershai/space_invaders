@@ -1,0 +1,32 @@
+///* sine 441 hz - one cycle*/
+// // stroe the value
+//logic [0:98][15:0] ROM ={ // need to be 0 to 102 so first 2 bytes be on the left 
+//16'h0000, 16'h066e, 16'h0cd6, 16'h132f,
+// 16'h1979, 16'h1fa3, 16'h25b4, 16'h2b98,
+// 16'h3156, 16'h36dd, 16'h3c32, 16'h4144,
+// 16'h461c, 16'h4aa2, 16'h4ee9, 16'h52d6,
+// 16'h5677, 16'h59bb, 16'h5ca9, 16'h5f33,
+// 16'h6166, 16'h632c, 16'h6498, 16'h6598,
+// 16'h6631, 16'h6668, 16'h6631, 16'h6599,
+// 16'h6496, 16'h632e, 16'h6164, 16'h5f35,
+// 16'h5ca8, 16'h59bc, 16'h5675, 16'h52d8,
+// 16'h4ee6, 16'h4aa7, 16'h4617, 16'h4148,
+// 16'h3c2e, 16'h36e0, 16'h3154, 16'h2b9a,
+// 16'h25b2, 16'h1fa5, 16'h1977, 16'h1330,
+// 16'h0cd6, 16'h066d, 16'h0001, 16'hf991,
+// 16'hf32c, 16'heccf, 16'he688, 16'he05d,
+// 16'hda4b, 16'hd46a, 16'hcea9, 16'hc922,
+// 16'hc3cf, 16'hbebc, 16'hb9e5, 16'hb55d,
+// 16'hb117, 16'had29, 16'ha98b, 16'ha644,
+// 16'ha358, 16'ha0cb, 16'h9e9c, 16'h9cd2,
+// 16'h9b69, 16'h9a69, 16'h99cd, 16'h999a,
+// 16'h99cd, 16'h9a68, 16'h9b6a, 16'h9cd2,
+// 16'h9e9b, 16'ha0cd, 16'ha356, 16'ha645,
+// 16'ha98c, 16'had25, 16'hb11d, 16'hb558,
+// 16'hb9e8, 16'hbeba, 16'hc3d1, 16'hc91f,
+// 16'hceae, 16'hd463, 16'hda51, 16'he059,
+// 16'he68c, 16'heccc, 16'hf32d
+//
+//};
+//assign depth = 99; // same as numbers of samples
+///* end sine 441 hz*/

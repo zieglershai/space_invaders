@@ -53,7 +53,9 @@ keyStartBitMap key_map_inst(
 wire [10:0] gameOver_sq_inst_offsetX;
 wire [10:0] gameOver_sq_inst_offsetY;
 wire gameOver_sq_RecDR;
-wire gameOverspaceDR;
+//wire gameOverspaceDR;
+wire gameOverDR; // typo
+
 wire [7:0] gameOverRGB;
 
 square_object 	#(

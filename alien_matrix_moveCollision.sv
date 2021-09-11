@@ -27,22 +27,26 @@ module	alien_matrix_moveCollision	(
 // a module used to generate the  ball trajectory.  
 
 parameter int INITIAL_X = 32;
-parameter int INITIAL_Y = 64;
+parameter int INITIAL_Y = 200;//80;
 parameter int INITIAL_X_SPEED = 40;
-parameter int INITIAL_Y_SPEED =  50;
+parameter int INITIAL_Y_SPEED =  100;//50;
 parameter int MAX_Y_SPEED = 230;
-const int ALIEN_ROW = 4;
+
+// never used const 09/09
+/*const int ALIEN_ROW = 4;
 const int ALIEN_COLUMN = 8; 
-const int  Y_ACCEL = 0;//-1;
+const int  Y_ACCEL = 0;//-1;*/
 
 const int	FIXED_POINT_MULTIPLIER	=	64;
 // FIXED_POINT_MULTIPLIER is used to enable working with integers in high resolution so that 
 // we do all calculations with topLeftX_FixedPoint to get a resolution of 1/64 pixel in calcuatuions,
 // we devide at the end by FIXED_POINT_MULTIPLIER which must be 2^n, to return to the initial proportions
-const int	x_FRAME_SIZE	=	639 * FIXED_POINT_MULTIPLIER; // note it must be 2^n 
+
+// never used const 09/09
+/*const int	x_FRAME_SIZE	=	639 * FIXED_POINT_MULTIPLIER; // note it must be 2^n 
 const int	y_FRAME_SIZE	=	479 * FIXED_POINT_MULTIPLIER;
 const int	bracketOffset =	30;
-const int   OBJECT_WIDTH_X = 64;
+const int   OBJECT_WIDTH_X = 64;*/
 
 int Xspeed, topLeftX_FixedPoint; // local parameters 
 int Yspeed, topLeftY_FixedPoint;
@@ -116,8 +120,11 @@ begin
 end
 
 //get a better (64 times) resolution using integer   
-assign 	topLeftX = topLeftX_FixedPoint / FIXED_POINT_MULTIPLIER ;   // note it must be 2^n 
-assign 	topLeftY = topLeftY_FixedPoint / FIXED_POINT_MULTIPLIER ;    
+//assign 	topLeftX = (topLeftX_FixedPoint / FIXED_POINT_MULTIPLIER) ;   // note it must be 2^n 
+//assign 	topLeftY = (topLeftY_FixedPoint / FIXED_POINT_MULTIPLIER) ;    
+
+assign 	topLeftX = topLeftX_FixedPoint [16:6];   //another way to divide by 64
+assign 	topLeftY = topLeftY_FixedPoint [16:6];    
 
 
 endmodule

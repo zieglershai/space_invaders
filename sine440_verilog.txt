@@ -1,0 +1,8 @@
+///* sine 440 hz - one cycle*/
+// // stroe the value
+//logic [0:99][15:0] ROM ={ // need to be 0 to 102 so first 2 bytes be on the left 
+// 16'h0380, 16'h09e8, 16'h1045, 16'h1694, 16'h1cc8, 16'h22e3, 16'h28d9, 16'h2ea6, 16'h3447, 16'h39ad, 16'h3ee2, 16'h43cb, 16'h4881, 16'h4cdc, 16'h50f9, 16'h54b9, 16'h582b, 16'h5b41, 16'h5dfe, 16'h6058, 16'h6257, 16'h63ec, 16'h6522, 16'h65f2, 16'h6658, 16'h665c, 16'h65f3, 16'h6528, 16'h63f5, 16'h6261, 16'h6065, 16'h5e0c, 16'h5b52, 16'h583d, 16'h54d1, 16'h510c, 16'h4cf8, 16'h4898, 16'h43ea, 16'h3efe, 16'h39cd, 16'h3466, 16'h2ec7, 16'h28fc, 16'h2306, 16'h1ced, 16'h16b7, 16'h106a, 16'h0a0c, 16'h03a8, 16'hfd38, 16'hf6d4, 16'hf072, 16'hea23, 16'he3ed, 16'hddc9, 16'hd7d7, 16'hd1fb, 16'hcc60, 16'hc6e8, 16'hc1b8, 16'hbcba, 16'hb80b, 16'hb399, 16'haf7f, 16'habad, 16'ha837, 16'ha512, 16'ha251, 16'h9fe2, 16'h9de4, 16'h9c39, 16'h9afd, 16'h9a22, 16'h99ac, 16'h99a2, 16'h99fb, 16'h9abb, 16'h9be3, 16'h9d6c, 16'h9f5d, 16'ha1ab, 16'ha459, 16'ha766, 16'haac6, 16'hae84, 16'hb28a, 16'hb6e9, 16'hbb87, 16'hc072, 16'hc597, 16'hcafb, 16'hd094, 16'hd656, 16'hdc4f, 16'he25c, 16'he897, 16'heeda, 16'hf53c, 16'hfb9d 
+//
+//};
+//assign depth = 100; // same as numbers of row
+///* end sine 440 hz*/

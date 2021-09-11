@@ -11,18 +11,18 @@
 `define ENABLE_ADC_CLOCK
 `define ENABLE_CLOCK1
 `define ENABLE_CLOCK2
-`define ENABLE_SDRAM
-`define ENABLE_HEX0
-`define ENABLE_HEX1
-`define ENABLE_HEX2
-`define ENABLE_HEX3
-`define ENABLE_HEX4
-`define ENABLE_HEX5
+//`define ENABLE_SDRAM
+//`define ENABLE_HEX0
+//`define ENABLE_HEX1
+//`define ENABLE_HEX2
+//`define ENABLE_HEX3
+//`define ENABLE_HEX4
+//`define ENABLE_HEX5
 `define ENABLE_KEY
 `define ENABLE_LED
 `define ENABLE_SW
 `define ENABLE_VGA
-`define ENABLE_ACCELEROMETER
+//`define ENABLE_ACCELEROMETER
 `define ENABLE_ARDUINO
 `define ENABLE_GPIO
 
@@ -42,7 +42,7 @@ module DE10_LITE_Golden_Top(
 `endif
 
     //////////// SDRAM: 3.3-V LVTTL //////////
-`ifdef ENABLE_SDRAM
+/*`ifdef ENABLE_SDRAM
     output          [12:0]      DRAM_ADDR,
     output           [1:0]      DRAM_BA,
     output                      DRAM_CAS_N,
@@ -55,9 +55,9 @@ module DE10_LITE_Golden_Top(
     output                      DRAM_UDQM,
     output                      DRAM_WE_N,
 `endif
-
+*/
     //////////// SEG7: 3.3-V LVTTL //////////
-`ifdef ENABLE_HEX0
+/*`ifdef ENABLE_HEX0
     output           [7:0]      HEX0,
 `endif
 `ifdef ENABLE_HEX1
@@ -75,7 +75,7 @@ module DE10_LITE_Golden_Top(
 `ifdef ENABLE_HEX5
     output           [7:0]      HEX5,
 `endif
-
+*/
     //////////// KEY: 3.3 V SCHMITT TRIGGER //////////
 `ifdef ENABLE_KEY
     input            [1:0]      KEY,
@@ -83,7 +83,9 @@ module DE10_LITE_Golden_Top(
 
     //////////// LED: 3.3-V LVTTL //////////
 `ifdef ENABLE_LED
-    output           [9:0]      LEDR,
+    //output           [9:0]      LEDR,
+	 output           [4:0]      LEDR,
+
 `endif
 
     //////////// SW: 3.3-V LVTTL //////////
@@ -101,14 +103,14 @@ module DE10_LITE_Golden_Top(
 `endif
 
     //////////// Accelerometer: 3.3-V LVTTL //////////
-`ifdef ENABLE_ACCELEROMETER
+/*`ifdef ENABLE_ACCELEROMETER
     output                      GSENSOR_CS_N,
     input            [2:1]      GSENSOR_INT,
     output                      GSENSOR_SCLK,
     inout                       GSENSOR_SDI,
     inout                       GSENSOR_SDO,
 `endif
-
+*/
     //////////// Arduino: 3.3-V LVTTL //////////
 `ifdef ENABLE_ARDUINO
     inout           [15:0]      ARDUINO_IO,// splited to two part button data 01/09
@@ -120,6 +122,8 @@ module DE10_LITE_Golden_Top(
     //////////// GPIO, GPIO connect to GPIO Default: 3.3-V LVTTL //////////
 `ifdef ENABLE_GPIO
     inout           [35:0]      GPIO
+	 //input           [35:0]      GPIO
+
 `endif
 );
 
@@ -128,6 +132,8 @@ module DE10_LITE_Golden_Top(
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
+
+
 
 wire clk;
 wire [7:0] RGB; // from mux to convertor
@@ -212,17 +218,24 @@ wire [7:0]bounusShipRGB;
 
 // INPUT WIRES FROM PICADE TO MAX10
 wire key_start;
-assign key_start = ARDUINO_IO[0];
+assign key_start = GPIO[13]; // adjust to new connector
+//assign key_start = ARDUINO_IO[0];
 assign LEDR[0] = key_start;
 
 wire key_coin_N;
-assign key_coin_N = ARDUINO_IO[4];
-assign LEDR[4] = key_coin_N;
+assign key_coin_N = GPIO[11]; // adjust to new connector
+//assign key_coin_N = ARDUINO_IO[4];
+assign LEDR[3] = key_coin_N;
+
+// wires for audio 
+wire LRCLK;
+wire SCLK;
+wire SD;
 
 
 
-assign LEDR[1] = ~ARDUINO_IO[1];
-assign LEDR[2] = ~ARDUINO_IO[2];
+assign LEDR[1] = ~GPIO[29];
+assign LEDR[2] = ~GPIO[33];
 
 
 //=======================================================
@@ -250,14 +263,20 @@ I2S
 ( 
     .onOff(SW[1]),
      .MCLK(clk),
-    .nReset(ARDUINO_IO[3]), //connected  to button 1 - in the future need to be diffrent port
-    .LRCLK(LRCLK),
+    //.nReset(ARDUINO_IO[3]), //connected  to button 1 - in the future need to be diffrent port
+    .nReset(GPIO[25]), //adjust to new connector
+    
+	 .LRCLK(LRCLK),
     .SCLK(SCLK),
     .SD(SD)
 );
-assign ARDUINO_IO[8] = LRCLK; 
+/*assign ARDUINO_IO[8] = LRCLK; 
 assign ARDUINO_IO[9] = SCLK;
-assign ARDUINO_IO[10] = SD;
+assign ARDUINO_IO[10] = SD;*/
+//adjust to new connector
+assign GPIO[31] = LRCLK; 
+assign GPIO[9] = SCLK;
+assign GPIO[35] = SD;
 
 // vga controller   
 // pixel X go up 2 pixels each clock not sure why
@@ -310,8 +329,8 @@ objects_mux mux_inst(
                             .endScreenRGB(endScreenRGB),  
                             .creditCoinsDR(creditCoinsDR), 
                             .creditCoinsRGB(creditCoinsRGB),   
-                            .creditTitleDR(creditTitleDR), 
-                            .creditTitleRGB(creditTitleRGB), 
+                            .creditTitleDR(/*creditTitleDR*/),  // unused - moved to titles block
+                            .creditTitleRGB(/*creditTitleRGB*/),  // unused - moved to titles block
                             .bounusShipDR(bounusShipDR), 
                             .bounusShipRGB(bounusShipRGB), 
                             .backGroundRGB(BG_RGB), 
@@ -332,7 +351,7 @@ game_controller game_cnt_inst (
                             .gameLose(gameLose),
                             .keyStartN(key_start),
                             .credits(credits),
-                            .drawing_request_bonusShip(/*drawing_request_bonusShip*/),
+                            .drawing_request_bonusShip(bounusShipDR),
                             .alienType(alienType),
                             .SingleHitPulse(/*SingleHitPulse*/), 
                             .collision_player_boarder(collisionPlayerBoarder),
@@ -377,8 +396,11 @@ player player_inst(
                             .clk(clk),
                             .resetN(KEY[0]),
                             .startOfFrame(startOfFrame),
-                            .leftArrowPressed(~ARDUINO_IO[1]/*leftArrowPressed*/),
-                            .rightArrowPressed(~ARDUINO_IO[2]/*rightArrowPressed*/),
+                            //.leftArrowPressed(~ARDUINO_IO[1]/*leftArrowPressed*/),
+									 .leftArrowPressed(~GPIO[33]/*leftArrowPressed*/),// adjust to new connector
+
+                            //.rightArrowPressed(~ARDUINO_IO[2]/*rightArrowPressed*/),
+                            .rightArrowPressed(~GPIO[29]/*rightArrowPressed*/),// adjust to new connector
                             .enterKeyPressed(/*enterKeyPressed*/),
                             .collisionPlayerBoarder(collisionPlayerBoarder),
                             .standBy(standBy), // need to be fixed
@@ -416,7 +438,8 @@ player_shots_block player_shot_inst(
                             .startOfFrame(startOfFrame),
                             .fireCollision(fireCollision),
                             .playerXPosition(playerXPosition),
-                            .keyRisingEdge(~ARDUINO_IO[3]), //connected  to button 1 
+                            //.keyRisingEdge(~ARDUINO_IO[3]), //connected  to button 1
+                            .keyRisingEdge(~GPIO[25]), //ADJUST TO NEW CONNECTORE 
                             .standBy(standBy),
                             .gameEnded(gameEnded),
                             .playerShotRGB(playerShotRGB),
@@ -460,7 +483,7 @@ start_screen start_screen_inst(
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .startScreenDR(startScreenDR),
-                            .startScreenRGB(startScreenRGB), 
+                            .startScreenRGB(startScreenRGB)
 
 );
 
@@ -473,7 +496,7 @@ end_screen end_screen_inst(
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .endScreenDR(endScreenDR),
-                            .endScreenRGB(endScreenRGB), 
+                            .endScreenRGB(endScreenRGB)
 
 );
 
@@ -530,7 +553,7 @@ bonus_ship bonus_ship_inst(
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .bonus_ship_DR(bounusShipDR),
-                            .bonus_ship_RGB(bounusShipRGB),
+                            .bonus_ship_RGB(bounusShipRGB)
 );
 
 

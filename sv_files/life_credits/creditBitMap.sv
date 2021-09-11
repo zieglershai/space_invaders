@@ -53,27 +53,27 @@ always_ff@(posedge clk or negedge resetN)
 begin
 	if(!resetN) begin
 		RGBout <=	TRANSPARENT_ENCODING;
-		credits <= 0;
-		flagadd <= 0;
+		credits <= 4'b0;
+		flagadd <= 1'b0;
 	end
 	
 	else if(!addCoin && !flagadd && credits < 5) begin
-		credits <= credits + 1;
-		flagadd <= 1;
+		credits <= credits + 4'b1;
+		flagadd <= 1'b1;
 	end
 
 	else if(gameStart && !flagdec && credits > 0) begin
-		credits <= credits - 1;
-		flagdec <= 1;
+		credits <= credits - 4'd1;
+		flagdec <= 1'b1;
 	end
 	
 	else begin
 		if(addCoin) begin
-			flagadd <= 0;
+			flagadd <= 1'b0;
 		end
 		
 		if(!gameStart) begin
-			flagdec <= 0;
+			flagdec <= 1'b0;
 		end
 		
 		RGBout <= TRANSPARENT_ENCODING;

@@ -1,9 +1,9 @@
 // (c) Technion IIT, Department of Electrical Engineering 2021 
 module random 	
  #(
-	parameter SIZE_BITS = 8,
-	parameter unsigned  MIN_VAL = 0,  //set the min and max values 
-	parameter unsigned MAX_VAL = 255
+	parameter [9:0] SIZE_BITS = 10,
+	parameter unsigned [SIZE_BITS-1:0] MIN_VAL = 10'd0,  //set the min and max values 
+	parameter unsigned [SIZE_BITS-1:0] MAX_VAL = 10'd255
 )
 ( 
 	input	logic  clk,
@@ -22,13 +22,13 @@ module random
 	
 always_ff @(posedge clk or negedge resetN) begin
 		if (!resetN) begin
-			dout <= (MAX_VAL-MIN_VAL)/2;
+			dout <= (MAX_VAL-MIN_VAL)/10'd2;
 			counter <= MIN_VAL;
 			rise_d <= 1'b0;
 		end
 		
 		else begin
-			counter <= counter+1;
+			counter <= counter + 1'b1;
 			if ( counter >= MAX_VAL ) // the +1 is done on the next clock 
 				counter <=  MIN_VAL ; // set min and max mvalues 
 			rise_d <= rise;
