@@ -1,0 +1,64 @@
+Info: Starting: Create simulation model
+Info: qsys-generate C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM\simulation --family="MAX 10" --part=10M50DAF484C6GES
+Progress: Loading my_ROM/my_ROM.qsys
+Progress: Reading input file
+Progress: Adding onchip_flash_0 [altera_onchip_flash 17.0]
+Progress: Parameterizing module onchip_flash_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: my_ROM: Generating my_ROM "my_ROM" for SIM_VERILOG
+Info: onchip_flash_0: "my_ROM" instantiated altera_onchip_flash "onchip_flash_0"
+Info: my_ROM: Done "my_ROM" with 2 modules, 4 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM\my_ROM.spd --output-directory=C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM\my_ROM.spd --output-directory=C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	1 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/my_ROM/my_ROM/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM.qsys --block-symbol-file --output-directory=C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM --family="MAX 10" --part=10M50DAF484C6GES
+Progress: Loading my_ROM/my_ROM.qsys
+Progress: Reading input file
+Progress: Adding onchip_flash_0 [altera_onchip_flash 17.0]
+Progress: Parameterizing module onchip_flash_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM.qsys --synthesis=VERILOG --output-directory=C:\Users\Shai\OneDrive\Documents\fpga\fpga_projects\space_invader_lite\my_ROM\my_ROM\synthesis --family="MAX 10" --part=10M50DAF484C6GES
+Progress: Loading my_ROM/my_ROM.qsys
+Progress: Reading input file
+Progress: Adding onchip_flash_0 [altera_onchip_flash 17.0]
+Progress: Parameterizing module onchip_flash_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: my_ROM: Generating my_ROM "my_ROM" for QUARTUS_SYNTH
+Info: onchip_flash_0: Generating top-level entity altera_onchip_flash
+Info: onchip_flash_0: "my_ROM" instantiated altera_onchip_flash "onchip_flash_0"
+Info: my_ROM: Done "my_ROM" with 2 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

@@ -88,6 +88,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO[15]",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO[25]",
 					"strict" : false
 				},
@@ -109,10 +113,6 @@
 				},
 				{
 					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
 					"strict" : false
 				},
 				{

@@ -138,6 +138,15 @@ always_comb begin
 	gameEnded = 0;
 	
 	
+	
+	/*
+	game state machine:
+	                     ___________________________
+								V                          |
+	start screen --> game screen --> gameover --> new game
+	 ^                                  |
+	 L-----------------------------------
+	*/
 	case (pres_st)
 		sIdle: begin
 			if (!keyStartN && credits) begin
@@ -161,6 +170,8 @@ always_comb begin
 		end
 		
 		sOver: begin
+		
+		// count second till move to start screen 
 			gameEnded = 1'b1;
 			standBy = 1'b0;
 			if (t_sec && !secflag) begin
@@ -173,16 +184,21 @@ always_comb begin
 			if (cur_endScreenTime <= 1'b0) begin
 				next_st = sIdle;
 			end
+			
+			// if player pushed the button move to new game
 			else if (!keyStartN && credits) begin
 				next_st = sNewGame;
 			end
 		end
 		
 		sNewGame: begin
-			startGame = 1'b1;
-			standBy = 1'b0;
-			gameEnded = 1'b1;
-			if (keyStartN) begin
+		
+		// new game :
+		// raise wires of new game
+			startGame = 1'b1; // nerw game
+			standBy = 1'b0; // stiil need to wait
+			gameEnded = 1'b1; // last game over
+			if (keyStartN) begin	// when key is unpressed start
 				next_st = sGame;
 			end
 		end

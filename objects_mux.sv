@@ -65,8 +65,11 @@ module	objects_mux	(
 			  
 			// credit title
 					input    logic creditTitleDR, // box of numbers
-					input		logic	[7:0] creditTitleRGB, 
-			
+					input		logic	[7:0] creditTitleRGB,
+
+			// volume display
+					input    logic audioDR, // box of numbers
+					input		logic	[7:0] audioRGB,
 			// bounus Ship 
 					input    logic bounusShipDR, // box of numbers
 					input		logic	[7:0] bounusShipRGB, 
@@ -89,16 +92,16 @@ begin
 	
 	else begin
 		if (alienMatrixDR == 1'b1 )   
-			RGBOut <= alienMatrixRGB;  //first priority 
+			RGBOut <= alienMatrixRGB;  
 				 
 		else if (playerDR == 1'b1 )   
-			RGBOut <= playerRGB;  //second priority 
+			RGBOut <= playerRGB;  
 			
 		else if (playerShotDR == 1'b1 )   
-			RGBOut <= playerShotRGB;  //thirsd priority 
+			RGBOut <= playerShotRGB;  
 		 
 		else if (alienShotDR == 1'b1 )   
-			RGBOut <= alienShotRGB;  //forth priority 
+			RGBOut <= alienShotRGB;  
 			
 		else if (scoreDR == 1'b1)
 			RGBOut <= scoreRGB;
@@ -129,6 +132,9 @@ begin
 			
 		else if (endScreenDR == 1'b1)
 			RGBOut <= endScreenRGB;
+		
+		else if (audioDR == 1'b1)
+			RGBOut <= audioRGB;
 		
 		else if (bounusShipDR == 1'b1)
 			RGBOut <= bounusShipRGB;

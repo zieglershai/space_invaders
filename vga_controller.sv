@@ -144,5 +144,5 @@ begin
 	    H_Cont <= 19'd0;
 end
 
-assign startOfFrame = pixelX == 11'd640 && pixelY == 11'd480; 
+assign startOfFrame = pixelX == 11'd640 && pixelY == 11'd480; // generate pulse each time we get to specific point in the screen - once evry frame draw
 endmodule

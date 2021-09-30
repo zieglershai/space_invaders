@@ -21,8 +21,12 @@ module	start_screen_mux	(
 
 			// credit invaders 
 					input		logic	creditDrawingRequest, // two set of inputs per unit
-					input		logic	[7:0] creditRGB,		
-			
+					input		logic	[7:0] creditRGB,
+					
+			// names 
+					input		logic	namesDR, // two set of inputs per unit
+					input		logic	[7:0] namesRGB,
+					
 	
 					output logic [7:0] RGBOut,
 					output logic startScreenDR
@@ -50,6 +54,11 @@ begin
 
 		else if (creditDrawingRequest == 1'b1 )  begin 
 			RGBOut <= creditRGB;  //second priority 
+			startScreenDR <= 1;
+		end
+		
+		else if (namesDR == 1'b1 )  begin 
+			RGBOut <= namesRGB;  //second priority 
 			startScreenDR <= 1;
 		end
 		

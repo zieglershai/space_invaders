@@ -11,7 +11,8 @@ module bonus_ship(
 					input [10:0]alienMatrixYPosition,
 					input [10:0] pixelX,
 					input [10:0] pixelY,
-
+					
+					output bonus_ship_alive,
 					output bonus_ship_DR,
 					output [7:0] bonus_ship_RGB
 );
@@ -31,6 +32,7 @@ wire insideRectangle;
 
 assign playGame = ~(standBy | gameEnded);
 assign insideRectangle = alive & bonus_shipRecDR;
+assign bonus_ship_alive = alive;
 
 
 random 	
@@ -98,4 +100,6 @@ bonusShipBitMap bonus_ship_map_inst(
 					.drawingRequest(bonus_ship_DR), //output that the pixel should be dispalyed 
 					.RGBout(bonus_ship_RGB)  //rgb value from the bitmap 
  ) ;
+ 
+ 
 endmodule 

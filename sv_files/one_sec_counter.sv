@@ -20,11 +20,11 @@
 // counter limit setting 
 	
 //       ----------------------------------------------	
-	localparam oneSecVal = 28'd100_000_000; // for DE10 board un-comment this line 
+	localparam oneSecVal = 28'd50_000_000; // for DE10 board un-comment this line 
 //	localparam oneSecVal = 26'd20; // for quartus simulation un-comment this line 
 //       ----------------------------------------------	
 	
-	assign  sec = turbo ? oneSecVal/10 : oneSecVal;
+	assign  sec = turbo ? oneSecVal/16 : oneSecVal;
 
 
 	

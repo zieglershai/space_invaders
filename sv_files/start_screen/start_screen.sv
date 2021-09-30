@@ -19,7 +19,7 @@ wire [7:0] startRGB;
 
 square_object 	#(
 			.OBJECT_WIDTH_X(128), //dec
-			.OBJECT_HEIGHT_Y(128),//dec
+			.OBJECT_HEIGHT_Y(77),//dec
 			.OBJECT_COLOR(0) //hex
 )
 keyStart_sq_inst(
@@ -93,7 +93,7 @@ wire [7:0] creditRGB;
 
 square_object 	#(
 			.OBJECT_WIDTH_X(128), //dec
-			.OBJECT_HEIGHT_Y(128),//dec
+			.OBJECT_HEIGHT_Y(78),//dec
 			.OBJECT_COLOR(0) //hex
 )
 credit_sq_inst(
@@ -120,6 +120,47 @@ keyCreditBitMap credit_map_inst(
 					.RGBout(creditRGB)
 );
 
+
+
+//names  moudule wires
+wire [10:0] names_sq_inst_offsetX;
+wire [10:0] names_sq_inst_offsetY;
+wire names_sq_RecDR;
+wire namesDR;
+wire [7:0] namesRGB;
+
+
+
+
+square_object 	#(
+			.OBJECT_WIDTH_X(64), //dec
+			.OBJECT_HEIGHT_Y(29),//dec
+			.OBJECT_COLOR(0) //hex
+)
+names_sq_inst(
+					.clk(clk),
+					.resetN(resetN),
+					.pixelX(pixelX),
+					.pixelY(pixelY),
+					.topLeftX(11'd30),
+					.topLeftY(11'd430),
+					.offsetX(names_sq_inst_offsetX),
+					.offsetY(names_sq_inst_offsetY),
+					.drawingRequest(names_sq_RecDR),
+					.RGBout()
+);
+
+namesBitMap names_map_inst(
+					.clk(clk), 
+					.resetN(resetN), 
+					.offsetX(names_sq_inst_offsetX), 
+					.offsetY(names_sq_inst_offsetY), 
+					.InsideRectangle(names_sq_RecDR),
+					.standBy(standBy),
+					.drawingRequest(namesDR), 
+					.RGBout(namesRGB)
+);
+
 start_screen_mux start_mux_inst
 (
 					.clk(clk),
@@ -129,7 +170,9 @@ start_screen_mux start_mux_inst
 					.spaceDrawingRequest(spaceDR), 
 					.spaceRGB(spaceRGB), 
 					.creditDrawingRequest(creditDR), 
-					.creditRGB(creditRGB),		
+					.creditRGB(creditRGB),
+					.namesDR(namesDR),
+					.namesRGB(namesRGB),
 					.RGBOut(startScreenRGB),
 					.startScreenDR(startScreenDR) 
 );

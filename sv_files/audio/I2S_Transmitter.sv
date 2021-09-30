@@ -45,61 +45,10 @@ always_ff @(negedge Clock, negedge nReset) begin // SCLK negative edge trigger
 	
 	
 	
-	//-first state machine
-//	else begin
-//		case (CurrentState) 
-//			State_Reset : begin
-//				flag <= 4'd0;// debug purpose
-//				Ready_Int <= 1'b0; // not ready to take new word
-//				LRCLK_Int <= 1'b0; // left chanel
-//				Enable <= 1'b1; // allways high
-//				SD_Int <= 1'b0; 
-//				Tx_Int <=  1'b0;
-//				CurrentState <= State_LoadWord;
-//			end
-//			
-//			/* load mode
-//			sample tx to tx internal
-//			and initilize oters wires
-//			*/
-//			State_LoadWord : begin
-//				flag <= 4'd1;// debug purpose
-//				BitCounter <= 0; // initilaize bit counter
-//				Tx_Int <= Tx; // sample tx input
-//				LRCLK_Int <= 1'b0; // left chanel first
-//				CurrentState <= State_TransmitWord; // move to transition
-//
-//			end
-//			
-//			/* transtion mode:
-//			16 bit to the left chanel and than 16 bits to the right
-//			after each bit sll tx_int and pad with zero
-//			*/
-//			State_TransmitWord : begin
-//				flag <= 4'd2;// debug purpose
-//				BitCounter <= BitCounter + 1;
-//				if(BitCounter > (WIDTH - 1)) begin
-//					LRCLK_Int <= 1'b1;
-//				end
-//				if(BitCounter < ((2 * WIDTH) - 1)) begin
-//					Ready_Int <= 1'b0;
-//					CurrentState <= State_TransmitWord;
-//				end
-//				else begin
-//					Ready_Int <= 1'b1;
-//					CurrentState <= State_LoadWord;
-//				end
-//				Tx_Int <= {Tx_Int[2 * WIDTH - 2:0] , 1'b0};
-//				SD_Int <= Tx_Int[2 * WIDTH - 1];
-//			end
-//		endcase
-//	end
-	// end first state machine
-	
-	
 	//optional state machine
 	else begin
 		SD_delayed <= SD_Int;
+		Ready_d <= Ready_Int;
 		case (CurrentState) 
 			State_Reset : begin
 				flag <= 4'd0;// debug purpose
@@ -156,13 +105,13 @@ always_ff @(negedge Clock, negedge nReset) begin // SCLK negative edge trigger
 	//optional state machine -end
 
 end
-always_comb begin
 
-    Ready = Ready_Int;
+logic Ready_d; // try to loop over theme debug
+always_comb begin
+	 Ready = Ready_d;  // try to loop over theme debug
     SCLK = Clock & Enable & onOff; 
     LRCLK = LRCLK_Int;// lrclk not dealayed
 	 
-    //SD = SD_Int;// sd without delay
 	 SD = SD_delayed; // sd with delay
 	 xxx = flag;// debug purpose
 end

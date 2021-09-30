@@ -15,7 +15,8 @@ module player_shots_block(
 		
 		output [7:0] playerShotRGB,
 		output playerShotDR,
-		output alive // possible debugging output and needed to be internal wire
+		output alive, // possible debugging output and needed to be internal wire
+		output newFire
 );
 		
 		
@@ -41,7 +42,8 @@ player_shot_moveCollision player_shot_mv_inst(
 			.playGame(playGame),
 			.topLeftX(playerShotTLX), 
 			.topLeftY(playerShotTLY),  
-			.alive(alive) 
+			.alive(alive),
+			.newFire(newFire)
 );
 
 square_object 	#(

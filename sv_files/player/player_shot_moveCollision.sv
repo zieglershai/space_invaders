@@ -1,9 +1,3 @@
-// (c) Technion IIT, Department of Electrical Engineering 2021 
-//-- Alex Grinshpun Apr 2017
-//-- Dudy Nov 13 2017
-// SystemVerilog version Alex Grinshpun May 2018
-// coding convention dudy December 2018
-// updaed Eyal Lev Feb 2021
 
 
 module	player_shot_moveCollision	(	
@@ -22,7 +16,8 @@ module	player_shot_moveCollision	(
 
 	output logic signed 	[10:0]	topLeftX, // output the top left corner 
 	output logic signed	[10:0]	topLeftY,  // can be negative , if the object is partliy outside 
-	output logic alive  
+	output logic alive,
+	output newFire // new output for audio enable
 
 					
 );
@@ -69,13 +64,16 @@ begin
 		topLeftX_FixedPoint	<= INITIAL_X * FIXED_POINT_MULTIPLIER;
 		topLeftY_FixedPoint	<= INITIAL_Y * FIXED_POINT_MULTIPLIER;
 		alive <= 0;
+		newFire <= 1'b0;
 	end
 	else begin
-
+		newFire <= 1'b0;
+		
 		if(start && !alive) begin
 			topLeftX_FixedPoint <= (playerXPosition + 32) * FIXED_POINT_MULTIPLIER;
 			topLeftY_FixedPoint <= INITIAL_Y * FIXED_POINT_MULTIPLIER;
 			alive <= 1;
+			newFire <= 1'b1;
 		end 
 		if (fireCollision)
 			alive <= 0;

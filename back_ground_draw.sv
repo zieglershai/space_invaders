@@ -1,5 +1,8 @@
 //-- feb 2021 add all colors square 
 // (c) Technion IIT, Department of Electrical Engineering 2021
+//
+//used to be complex logic to draw matrix
+//however its not needed any more so we paint the background black like the space
 
 
 module	back_ground_draw	(	
@@ -73,6 +76,8 @@ begin
 				greenBits <= DARK_COLOR ;	
 				blueBits <= LIGHT_COLOR ;	// 3rd bit will be truncated
 			end*/
+			
+			
 		// draw  four lines with "bracketOffset" offset from the border 
 		
 		if (        pixelX == bracketOffset ||

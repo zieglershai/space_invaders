@@ -84,7 +84,7 @@ module DE10_LITE_Golden_Top(
     //////////// LED: 3.3-V LVTTL //////////
 `ifdef ENABLE_LED
     //output           [9:0]      LEDR,
-	 output           [4:0]      LEDR,
+	 output           [3:0]      LEDR,
 
 `endif
 
@@ -143,6 +143,9 @@ wire [10:0] pixelX;
 wire [10:0] pixelY;
 wire startOfFrame;
 
+
+/* all the collision wires 
+goes from the controller to the relevant modules*/
 wire collision;
 wire collisionAlienMatrixBoarder;
 wire collisionPlayerBoarder;
@@ -153,29 +156,38 @@ wire collision_alienShot_player;
 wire collision_fire_bonusShip; // collision between bonus ship and player fire
 wire alienplayer_FireCollision; // used to trigger bonus ship when alien was hit
 
+/* game stae wires 
+goes from the controller to the modules*/
 wire standBy;
 wire gameEnded;
 wire startGame; // indicate passing from menu to the game
 
+//metrix state wires 
 wire bottomaAlien; // when pixels locate on bottom alien in matrix
 wire [10:0] alienMiddleX; // matrix middle point
 wire [10:0] alienMiddleY;
 wire [10:0] alienMatrixYPosition;  // top y matrix position used for bonus ship 
 wire [1:0] alienType;
 
+// player state wires
 wire [10:0] playerXPosition; // for player shot initial
+wire newFire;
 
+// score and high score data and state wires
 wire [7:0] scoreUpdate;
 wire [31:0] score;
 wire newHighScore; // if player achive new high score during the game
 
-wire gameLose; // if life got down to zero
+// live wire - high if no life left
+wire gameLose; 
 
+// credits state bus
 wire [3:0] credits; // how much money left
 
+wire bonus_ship_alive; // high if bonus ship on screen
 
-wire smileyDR;
-wire [7:0] smileyRGB;
+/* this part contain all the wires from the diffrent modules that display sometihnig on the screen.
+each tuple has ...DR and ...rgb  that goes from their module to the display mux*/
 
 wire boardersDrawReq;
 wire [7:0] BG_RGB;
@@ -216,16 +228,41 @@ wire [7:0]titlesRGB;
 wire bounusShipDR;
 wire [7:0]bounusShipRGB;
 
+wire audioDR;
+wire [7:0]audioRGB;
+
+wire sound_en;
+
+//input from de10 board
+wire resetN;
+assign resetN = KEY[0];
+
 // INPUT WIRES FROM PICADE TO MAX10
-wire key_start;
-assign key_start = GPIO[13]; // adjust to new connector
-//assign key_start = ARDUINO_IO[0];
+wire key_start; // START BUTTON
+assign key_start = GPIO[15]; 
 assign LEDR[0] = key_start;
 
-wire key_coin_N;
-assign key_coin_N = GPIO[11]; // adjust to new connector
-//assign key_coin_N = ARDUINO_IO[4];
+wire key_coin_N; // COIN BUTTON
+assign key_coin_N = GPIO[11]; 
 assign LEDR[3] = key_coin_N;
+
+// left joystick indicator activate low 
+wire left;
+assign left = GPIO[33];
+assign LEDR[2] = ~GPIO[33];
+
+// right joystick indicator activate low
+wire right;
+assign right = GPIO[29];
+assign LEDR[1] = ~GPIO[29];
+
+// right side button idicator activate low
+wire vol_btn;
+assign vol_btn = GPIO[13];
+
+// button one indicator required for fire
+wire btn_1;
+assign btn_1 = GPIO[25];
 
 // wires for audio 
 wire LRCLK;
@@ -234,8 +271,6 @@ wire SD;
 
 
 
-assign LEDR[1] = ~GPIO[29];
-assign LEDR[2] = ~GPIO[33];
 
 
 //=======================================================
@@ -253,23 +288,21 @@ vga_pll u1(
 
     
 // audio module
-parameter RATIO = 35;
-parameter WIDTH = 16;   
-I2S 
-#(
-    //.RATIO(RATIO),
-    .WIDTH(WIDTH)
-)I2S_inst
-( 
-    .onOff(SW[1]),
+audio audio_inst( 
+    .onOff(sound_en),
      .MCLK(clk),
-    //.nReset(ARDUINO_IO[3]), //connected  to button 1 - in the future need to be diffrent port
-    .nReset(GPIO[25]), //adjust to new connector
-    
+    .resetN(resetN), //adjust to new connector
+	 .new_fire(newFire),
+	 .collision_alienShot_player(collision_alienShot_player),
+	 .collision_fire_alien(alienplayer_FireCollision),
+	 .bonusFireCollision(collision_fire_bonusShip),
+	 .bonus_ship_alive(bonus_ship_alive),
 	 .LRCLK(LRCLK),
     .SCLK(SCLK),
     .SD(SD)
 );
+
+
 /*assign ARDUINO_IO[8] = LRCLK; 
 assign ARDUINO_IO[9] = SCLK;
 assign ARDUINO_IO[10] = SD;*/
@@ -281,7 +314,7 @@ assign GPIO[35] = SD;
 // vga controller   
 // pixel X go up 2 pixels each clock not sure why
 vga_controller vga_ins(
-                            .iRST_n(KEY[0]),
+                            .iRST_n(resetN),
                             .iVGA_CLK(clk),
                             .bgr_data_8(BGR),
                             .oHS(VGA_HS),
@@ -302,7 +335,7 @@ RGB_to_BGR cnvt_rgb (
 // decide which object to print - need to be checked                            
 objects_mux mux_inst(                               
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .alienMatrixDR(alienMatrixDR), 
                             .alienMatrixRGB(alienMatrixRGB), 
                             .playerDR(playerDR), 
@@ -331,7 +364,9 @@ objects_mux mux_inst(
                             .creditCoinsRGB(creditCoinsRGB),   
                             .creditTitleDR(/*creditTitleDR*/),  // unused - moved to titles block
                             .creditTitleRGB(/*creditTitleRGB*/),  // unused - moved to titles block
-                            .bounusShipDR(bounusShipDR), 
+                            .bounusShipDR(bounusShipDR),
+									 .audioDR(audioDR),
+									 .audioRGB(audioRGB),
                             .bounusShipRGB(bounusShipRGB), 
                             .backGroundRGB(BG_RGB), 
                             .RGBOut(RGB)
@@ -341,7 +376,7 @@ objects_mux mux_inst(
 // check collision - need to be checked
 game_controller game_cnt_inst (
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame), 
                             .drawing_request_alienMatrix(alienMatrixDR),
                             .drawing_request_boarders(boardersDrawReq),
@@ -373,7 +408,7 @@ game_controller game_cnt_inst (
 
 alien_matrix_block alien_block_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .collision(collisionAlienMatrixBoarder),
                             .fireCollision(fireCollision),
@@ -394,19 +429,15 @@ alien_matrix_block alien_block_inst(
 
 player player_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
-                            //.leftArrowPressed(~ARDUINO_IO[1]/*leftArrowPressed*/),
-									 .leftArrowPressed(~GPIO[33]/*leftArrowPressed*/),// adjust to new connector
-
-                            //.rightArrowPressed(~ARDUINO_IO[2]/*rightArrowPressed*/),
-                            .rightArrowPressed(~GPIO[29]/*rightArrowPressed*/),// adjust to new connector
+									 .leftArrowPressed(~left/*leftArrowPressed*/),// adjust to new connector
+                            .rightArrowPressed(~right/*rightArrowPressed*/),// adjust to new connector
                             .enterKeyPressed(/*enterKeyPressed*/),
                             .collisionPlayerBoarder(collisionPlayerBoarder),
                             .standBy(standBy), // need to be fixed
                             .gameEnded(gameEnded), // need to be fixed
-                            .playerHit(collision_alienShot_player
-                            ), // collison alien shot player
+                            .playerHit(collision_alienShot_player), // collison alien shot player
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .playerDR(playerDR),
@@ -416,7 +447,7 @@ player player_inst(
 
 alien_shot_block alien_shot_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .alienFireCollision(alienFireCollision),
                             .bottomaAlien(bottomaAlien),
@@ -434,22 +465,23 @@ player_shots_block player_shot_inst(
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .fireCollision(fireCollision),
                             .playerXPosition(playerXPosition),
-                            //.keyRisingEdge(~ARDUINO_IO[3]), //connected  to button 1
-                            .keyRisingEdge(~GPIO[25]), //ADJUST TO NEW CONNECTORE 
+                            .keyRisingEdge(~btn_1), //ADJUST TO NEW CONNECTORE 
                             .standBy(standBy),
                             .gameEnded(gameEnded),
                             .playerShotRGB(playerShotRGB),
                             .playerShotDR(playerShotDR),
-                            .alive()
+                            .alive(),
+									 .newFire(newFire)
+
 );
 
 score_block score_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .startOfFrame(startOfFrame),
@@ -462,7 +494,7 @@ score_block score_inst(
 
 player_life_block life_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .standBy(standBy),
                             .gameEnded(gameEnded),
@@ -477,7 +509,7 @@ player_life_block life_inst(
 
 start_screen start_screen_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .standBy(standBy),
                             .pixelX(pixelX),
@@ -489,7 +521,7 @@ start_screen start_screen_inst(
 
 end_screen end_screen_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .gameEnded(gameEnded),
                             .newHighScore(newHighScore),
@@ -503,7 +535,7 @@ end_screen end_screen_inst(
 
 credit_block credit_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .standBy(standBy),
                             .pixelX(pixelX),
                             .pixelY(pixelY),
@@ -517,7 +549,7 @@ credit_block credit_inst(
 
 high_score high_score_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .startGame(startGame),
                             .pixelX(pixelX),
@@ -530,7 +562,7 @@ high_score high_score_inst(
 
 titles_block titles_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .gameEnded(gameEnded),
                             .standBy(standBy),
@@ -543,7 +575,7 @@ titles_block titles_inst(
 
 bonus_ship bonus_ship_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .startOfFrame(startOfFrame),
                             .standBy(standBy),
                             .gameEnded(gameEnded),                   
@@ -552,15 +584,27 @@ bonus_ship bonus_ship_inst(
                             .alienMatrixYPosition(alienMatrixYPosition),
                             .pixelX(pixelX),
                             .pixelY(pixelY),
+									 .bonus_ship_alive(bonus_ship_alive),
                             .bonus_ship_DR(bounusShipDR),
                             .bonus_ship_RGB(bounusShipRGB)
 );
 
+volume_display vol_dis_inst(
+									.clk(clk),
+									.resetN(resetN),
+									.vol_btn(~vol_btn),
+									.pixelX(pixelX),
+									.pixelY(pixelY),
+									.sound_en(sound_en),
+									.audioDR(audioDR),
+									.audioRGB(audioRGB)
+
+);
 
 // background   - need to be fixed                      
 back_ground_draw back_inst(
                             .clk(clk),
-                            .resetN(KEY[0]),
+                            .resetN(resetN),
                             .pixelX(pixelX),
                             .pixelY(pixelY),
                             .BG_RGB(BG_RGB),
@@ -569,18 +613,7 @@ back_ground_draw back_inst(
 
  
 
-// smiley object - not relveant
-/*smiley_block  smiley_block_inst (
-                            .pixelX(pixelX),
-                            .pixelY(pixelY),
-                            .clk(clk),
-                            .resetN(KEY[0]),
-                            .startOfFrame(startOfFrame),
-                            .Y_direction(),
-                            .toggleX(),
-                            .collision(collision),
-                            .smileyDR(smileyDR),
-                            .smileyRGB(smileyRGB));*/
+
                             
                             
 endmodule

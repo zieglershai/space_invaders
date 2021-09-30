@@ -4,6 +4,11 @@
 // New coding convention dudy December 2018
 // (c) Technion IIT, Department of Electrical Engineering 2021 
 
+/*
+get the pixels vector and the current object size parameter
+return if the vector is inside and if so where 
+*/
+
 
 module	square_object
 #(

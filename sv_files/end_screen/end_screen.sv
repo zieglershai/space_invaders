@@ -20,7 +20,7 @@ wire [7:0] startRGB;
 
 square_object 	#(
 			.OBJECT_WIDTH_X(128), //dec
-			.OBJECT_HEIGHT_Y(128),//dec
+			.OBJECT_HEIGHT_Y(77),//dec
 			.OBJECT_COLOR(0) //hex
 )
 keyStart_sq_inst(
@@ -100,7 +100,7 @@ wire [7:0] creditRGB;
 
 square_object 	#(
 			.OBJECT_WIDTH_X(128), //dec
-			.OBJECT_HEIGHT_Y(128),//dec
+			.OBJECT_HEIGHT_Y(77),//dec
 			.OBJECT_COLOR(0) //hex
 )
 credit_sq_inst(

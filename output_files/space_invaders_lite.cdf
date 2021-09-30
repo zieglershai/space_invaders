@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484ES) Path("C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/") File("space_invaders_lite.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484ES) Path("C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/") File("space_invaders_lite.pof") MfrSpec(OpMask(1) Child_OpMask(2 1 1));
 
 ChainEnd;
 

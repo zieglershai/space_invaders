@@ -42,11 +42,13 @@ credit_sq(
 					.RGBout()
 );
 
-credit_shmidth smidth_inst(
+shmidth smidth_inst(
 	 .clk(clk),
 	 .resetN(resetN),
-	 .i_addCoin(keyCoinN),
-	 .o_addCoin(add_coin_n)
+	 .neg_in(keyCoinN),
+	 .neg_out(add_coin_n),
+	 .pos_in(),
+	 .pos_out()
 );
 
 

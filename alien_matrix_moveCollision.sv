@@ -1,9 +1,4 @@
-// (c) Technion IIT, Department of Electrical Engineering 2021 
-//-- Alex Grinshpun Apr 2017
-//-- Dudy Nov 13 2017
-// SystemVerilog version Alex Grinshpun May 2018
-// coding convention dudy December 2018
-// updaed Eyal Lev Feb 2021
+
 
 
 module	alien_matrix_moveCollision	(	
@@ -27,9 +22,9 @@ module	alien_matrix_moveCollision	(
 // a module used to generate the  ball trajectory.  
 
 parameter int INITIAL_X = 32;
-parameter int INITIAL_Y = 200;//80;
+parameter int INITIAL_Y = 80;
 parameter int INITIAL_X_SPEED = 40;
-parameter int INITIAL_Y_SPEED =  100;//50;
+parameter int INITIAL_Y_SPEED =  50;
 parameter int MAX_Y_SPEED = 230;
 
 // never used const 09/09

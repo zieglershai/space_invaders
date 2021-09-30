@@ -1,0 +1,21 @@
+# system info unnamed on 2021.09.12.15:43:30
+system_info:
+name,value
+DEVICE,10M50DAF484C6GES
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1631450609
+#
+#
+# Files generated for unnamed on 2021.09.12.15:43:30
+files:
+filepath,kind,attributes,module,is_top
+simulation/unnamed.v,VERILOG,,unnamed,true
+simulation/submodules/altera_onchip_flash_util.v,VERILOG,,altera_onchip_flash,false
+simulation/submodules/altera_onchip_flash.v,VERILOG,,altera_onchip_flash,false
+simulation/submodules/altera_onchip_flash_avmm_data_controller.v,VERILOG,,altera_onchip_flash,false
+simulation/submodules/altera_onchip_flash_avmm_csr_controller.v,VERILOG,,altera_onchip_flash,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+unnamed.onchip_flash_0,altera_onchip_flash

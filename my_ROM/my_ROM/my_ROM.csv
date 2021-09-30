@@ -1,0 +1,20 @@
+# system info my_ROM on 2021.09.24.15:21:14
+system_info:
+name,value
+DEVICE,10M50DAF484C6GES
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1632486073
+#
+#
+# Files generated for my_ROM on 2021.09.24.15:21:14
+files:
+filepath,kind,attributes,module,is_top
+simulation/my_ROM.v,VERILOG,,my_ROM,true
+simulation/submodules/altera_onchip_flash_util.v,VERILOG,,altera_onchip_flash,false
+simulation/submodules/altera_onchip_flash.v,VERILOG,,altera_onchip_flash,false
+simulation/submodules/altera_onchip_flash_avmm_data_controller.v,VERILOG,,altera_onchip_flash,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+my_ROM.onchip_flash_0,altera_onchip_flash
