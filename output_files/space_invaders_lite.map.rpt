@@ -1,5 +1,5 @@
 Analysis & Synthesis report for space_invaders_lite
-Wed Sep 29 13:02:47 2021
+Thu Oct 07 19:28:44 2021
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -172,7 +172,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep 29 13:02:47 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 07 19:28:44 2021       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; space_invaders_lite                         ;
 ; Top-level Entity Name              ; DE10_LITE_Golden_Top                        ;
@@ -3635,7 +3635,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:04:57     ;
+; Top            ; 00:05:02     ;
 +----------------+--------------+
 
 
@@ -3844,18 +3844,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Sep 29 12:56:05 2021
+    Info: Processing started: Thu Oct 07 19:21:53 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off space_invaders_lite -c space_invaders_lite
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12248): Elaborating Qsys system entity "my_ROM.qsys"
-Info (12250): 2021.09.29.12:56:15 Progress: Loading my_ROM/my_ROM.qsys
-Info (12250): 2021.09.29.12:56:16 Progress: Reading input file
-Info (12250): 2021.09.29.12:56:16 Progress: Adding onchip_flash_0 [altera_onchip_flash 17.0]
-Info (12250): 2021.09.29.12:56:17 Progress: Parameterizing module onchip_flash_0
-Info (12250): 2021.09.29.12:56:17 Progress: Building connections
-Info (12250): 2021.09.29.12:56:17 Progress: Parameterizing connections
-Info (12250): 2021.09.29.12:56:17 Progress: Validating
-Info (12250): 2021.09.29.12:56:17 Progress: Done reading input file
+Info (12250): 2021.10.07.19:22:04 Progress: Loading my_ROM/my_ROM.qsys
+Info (12250): 2021.10.07.19:22:05 Progress: Reading input file
+Info (12250): 2021.10.07.19:22:05 Progress: Adding onchip_flash_0 [altera_onchip_flash 17.0]
+Info (12250): 2021.10.07.19:22:06 Progress: Parameterizing module onchip_flash_0
+Info (12250): 2021.10.07.19:22:06 Progress: Building connections
+Info (12250): 2021.10.07.19:22:06 Progress: Parameterizing connections
+Info (12250): 2021.10.07.19:22:06 Progress: Validating
+Info (12250): 2021.10.07.19:22:06 Progress: Done reading input file
 Info (12250): My_ROM: Generating my_ROM "my_ROM" for QUARTUS_SYNTH
 Info (12250): Onchip_flash_0: Generating top-level entity altera_onchip_flash
 Info (12250): Onchip_flash_0: "my_ROM" instantiated altera_onchip_flash "onchip_flash_0"
@@ -3868,7 +3868,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file sv_file
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/audio/i2s.sv
     Info (12023): Found entity 1: I2S File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/I2S.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file back_ground_draw.sv
-    Info (12023): Found entity 1: back_ground_draw File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/back_ground_draw.sv Line: 5
+    Info (12023): Found entity 1: back_ground_draw File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/back_ground_draw.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file objects_mux.sv
     Info (12023): Found entity 1: objects_mux File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/objects_mux.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
@@ -3878,7 +3878,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file video_s
 Info (12021): Found 1 design units, including 1 entities, in source file vga_pll.sv
     Info (12023): Found entity 1: vga_pll File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_pll.sv Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file square_object.sv
-    Info (12023): Found entity 1: square_object File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/square_object.sv Line: 8
+    Info (12023): Found entity 1: square_object File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/square_object.sv Line: 13
 Info (12021): Found 1 design units, including 1 entities, in source file smileyface_movecollision.sv
     Info (12023): Found entity 1: smileyface_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/smileyface_moveCollision.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file smileybitmap.sv
@@ -3892,7 +3892,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file game_co
 Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
     Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file player.sv
-    Info (12023): Found entity 1: player File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 1
+    Info (12023): Found entity 1: player File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file player_movecollision.sv
     Info (12023): Found entity 1: player_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player_moveCollision.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file playerbitmap.sv
@@ -3900,7 +3900,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file playerb
 Info (12021): Found 1 design units, including 1 entities, in source file alien_matrix_block.sv
     Info (12023): Found entity 1: alien_matrix_block File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_block.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alien_matrix_movecollision.sv
-    Info (12023): Found entity 1: alien_matrix_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_moveCollision.sv Line: 9
+    Info (12023): Found entity 1: alien_matrix_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_moveCollision.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file alien_matrixbitmap.sv
     Info (12023): Found entity 1: alien_matrixBitMap File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrixBitMap.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file alienmiddle.sv
@@ -3910,11 +3910,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file output_
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/random.sv
     Info (12023): Found entity 1: random File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/random.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/alien_shot_movecollision.sv
-    Info (12023): Found entity 1: alien_shot_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_moveCollision.sv Line: 9
+    Info (12023): Found entity 1: alien_shot_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_moveCollision.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/player/player_shots_block.sv
     Info (12023): Found entity 1: player_shots_block File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shots_block.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/player/player_shot_movecollision.sv
-    Info (12023): Found entity 1: player_shot_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shot_moveCollision.sv Line: 9
+    Info (12023): Found entity 1: player_shot_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shot_moveCollision.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/score/score_block.sv
     Info (12023): Found entity 1: score_block File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/score/score_block.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/scorebitmap.sv
@@ -3964,7 +3964,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file sv_file
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/bonus_ship/bonus_ship.sv
     Info (12023): Found entity 1: bonus_ship File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonus_ship.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/bonus_ship/bonusship_movecollision.sv
-    Info (12023): Found entity 1: bonusShip_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonusShip_moveCollision.sv Line: 9
+    Info (12023): Found entity 1: bonusShip_moveCollision File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonusShip_moveCollision.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/bonusshipbitmap.sv
     Info (12023): Found entity 1: bonusShipBitMap File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/bonusShipBitMap.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file sv_files/audio/clock_divide_n.sv
@@ -4014,7 +4014,7 @@ Info (12021): Found 7 design units, including 7 entities, in source file db/ip/m
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/my_rom/submodules/rtl/altera_onchip_flash_block.v
     Info (12023): Found entity 1: altera_onchip_flash_block File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/ip/my_rom/submodules/rtl/altera_onchip_flash_block.v Line: 38
 Info (12127): Elaborating entity "DE10_LITE_Golden_Top" for the top level hierarchy
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_pll:u1" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 258
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_pll:u1" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 285
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll:u1|altpll:altpll_component" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_pll.sv Line: 104
 Info (12130): Elaborated megafunction instantiation "vga_pll:u1|altpll:altpll_component" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_pll.sv Line: 104
 Info (12133): Instantiated megafunction "vga_pll:u1|altpll:altpll_component" with the following parameter: File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_pll.sv Line: 104
@@ -4076,17 +4076,17 @@ Info (12133): Instantiated megafunction "vga_pll:u1|altpll:altpll_component" wit
 Info (12021): Found 1 design units, including 1 entities, in source file db/vga_pll_altpll.v
     Info (12023): Found entity 1: vga_pll_altpll File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/vga_pll_altpll.v Line: 31
 Info (12128): Elaborating entity "vga_pll_altpll" for hierarchy "vga_pll:u1|altpll:altpll_component|vga_pll_altpll:auto_generated" File: c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "audio" for hierarchy "audio:audio_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 277
+Info (12128): Elaborating entity "audio" for hierarchy "audio:audio_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 303
 Info (12128): Elaborating entity "I2S" for hierarchy "audio:audio_inst|I2S:I2S_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/audio.sv Line: 38
-Info (12128): Elaborating entity "clock_divide_N" for hierarchy "audio:audio_inst|I2S:I2S_inst|clock_divide_N:clock_divide_19" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/I2S.sv Line: 37
-Info (12128): Elaborating entity "I2S_Transmitter" for hierarchy "audio:audio_inst|I2S:I2S_inst|I2S_Transmitter:I2S_Transmitter_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/I2S.sv Line: 53
+Info (12128): Elaborating entity "clock_divide_N" for hierarchy "audio:audio_inst|I2S:I2S_inst|clock_divide_N:clock_divide_19" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/I2S.sv Line: 34
+Info (12128): Elaborating entity "I2S_Transmitter" for hierarchy "audio:audio_inst|I2S:I2S_inst|I2S_Transmitter:I2S_Transmitter_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/I2S.sv Line: 52
 Info (12128): Elaborating entity "semi_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/I2S.sv Line: 66
-Info (12128): Elaborating entity "player_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|player_ROM:player_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 28
+Info (12128): Elaborating entity "player_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|player_ROM:player_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 26
 Warning (10202): Verilog HDL Declaration warning at player_ROM.sv(13): vector has more than 2**16 bits File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/player_ROM.sv Line: 13
 Warning (10202): Verilog HDL Declaration warning at player_ROM.sv(14): vector has more than 2**16 bits File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/player_ROM.sv Line: 14
-Info (12128): Elaborating entity "shot_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|shot_ROM:shot_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 44
-Info (12128): Elaborating entity "invader_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|invader_ROM:invader_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 59
-Info (12128): Elaborating entity "ROM_mux" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 104
+Info (12128): Elaborating entity "shot_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|shot_ROM:shot_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 42
+Info (12128): Elaborating entity "invader_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|invader_ROM:invader_ROM_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 57
+Info (12128): Elaborating entity "ROM_mux" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/semi_ROM.sv Line: 75
 Info (12128): Elaborating entity "my_ROM" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/ROM_mux.sv Line: 46
 Info (12128): Elaborating entity "altera_onchip_flash" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0|altera_onchip_flash:onchip_flash_0" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/ip/my_rom/my_rom.v Line: 78
 Info (12128): Elaborating entity "altera_onchip_flash_avmm_data_controller" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/ip/my_rom/submodules/altera_onchip_flash.v Line: 279
@@ -4114,13 +4114,13 @@ Warning (10036): Verilog HDL or VHDL warning at altera_onchip_flash_avmm_data_co
 Info (12128): Elaborating entity "altera_onchip_flash_address_range_check" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_address_range_check:address_range_checker" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/ip/my_rom/submodules/altera_onchip_flash_avmm_data_controller.v Line: 1171
 Info (12128): Elaborating entity "altera_onchip_flash_convert_address" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|altera_onchip_flash_convert_address:address_convertor" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/ip/my_rom/submodules/altera_onchip_flash_avmm_data_controller.v Line: 1180
 Info (12128): Elaborating entity "altera_onchip_flash_block" for hierarchy "audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_block:altera_onchip_flash_block" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/ip/my_rom/submodules/altera_onchip_flash.v Line: 323
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 301
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga_ins" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 327
 Info (12128): Elaborating entity "video_sync_generator" for hierarchy "vga_controller:vga_ins|video_sync_generator:LTM_ins" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/vga_controller.sv Line: 44
-Info (12128): Elaborating entity "RGB_to_BGR" for hierarchy "RGB_to_BGR:cnvt_rgb" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 306
-Info (12128): Elaborating entity "objects_mux" for hierarchy "objects_mux:mux_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 347
-Info (12128): Elaborating entity "game_controller" for hierarchy "game_controller:game_cnt_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 381
+Info (12128): Elaborating entity "RGB_to_BGR" for hierarchy "RGB_to_BGR:cnvt_rgb" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 332
+Info (12128): Elaborating entity "objects_mux" for hierarchy "objects_mux:mux_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 373
+Info (12128): Elaborating entity "game_controller" for hierarchy "game_controller:game_cnt_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 407
 Info (12128): Elaborating entity "one_sec_counter" for hierarchy "game_controller:game_cnt_inst|one_sec_counter:one_sec_counter" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/game_controller.sv Line: 65
-Info (12128): Elaborating entity "alien_matrix_block" for hierarchy "alien_matrix_block:alien_block_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 401
+Info (12128): Elaborating entity "alien_matrix_block" for hierarchy "alien_matrix_block:alien_block_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 427
 Info (12128): Elaborating entity "alien_matrix_moveCollision" for hierarchy "alien_matrix_block:alien_block_inst|alien_matrix_moveCollision:alien_mov_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_block.sv Line: 44
 Info (12128): Elaborating entity "square_object" for hierarchy "alien_matrix_block:alien_block_inst|square_object:alien_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_block.sv Line: 61
 Info (12128): Elaborating entity "alien_matrixBitMap" for hierarchy "alien_matrix_block:alien_block_inst|alien_matrixBitMap:alien_bit_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_block.sv Line: 78
@@ -4129,28 +4129,28 @@ Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "hit_colors" into its bus
 Info (12128): Elaborating entity "alienMiddle" for hierarchy "alien_matrix_block:alien_block_inst|alienMiddle:alien_middle_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/alien_matrix_block.sv Line: 90
-Info (12128): Elaborating entity "player" for hierarchy "player:player_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 424
-Info (12128): Elaborating entity "player_moveCollision" for hierarchy "player:player_inst|player_moveCollision:player_mov_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 44
-Info (12128): Elaborating entity "square_object" for hierarchy "player:player_inst|square_object:player_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 61
-Info (12128): Elaborating entity "playerBitMap" for hierarchy "player:player_inst|playerBitMap:player_bit_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 74
+Info (12128): Elaborating entity "player" for hierarchy "player:player_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 446
+Info (12128): Elaborating entity "player_moveCollision" for hierarchy "player:player_inst|player_moveCollision:player_mov_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 47
+Info (12128): Elaborating entity "square_object" for hierarchy "player:player_inst|square_object:player_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 64
+Info (12128): Elaborating entity "playerBitMap" for hierarchy "player:player_inst|playerBitMap:player_bit_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player.sv Line: 77
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "hit_colors" into its bus
-Info (12128): Elaborating entity "alien_shot_block" for hierarchy "alien_shot_block:alien_shot_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 440
+Info (12128): Elaborating entity "alien_shot_block" for hierarchy "alien_shot_block:alien_shot_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 462
 Info (12128): Elaborating entity "random" for hierarchy "alien_shot_block:alien_shot_inst|random:rnd_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_block.sv Line: 44
 Info (12128): Elaborating entity "alien_shot_moveCollision" for hierarchy "alien_shot_block:alien_shot_inst|alien_shot_moveCollision:alien_shot_mv_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_block.sv Line: 60
 Info (12128): Elaborating entity "square_object" for hierarchy "alien_shot_block:alien_shot_inst|square_object:alien_shot_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_block.sv Line: 78
-Info (12128): Elaborating entity "player_shots_block" for hierarchy "player_shots_block:player_shot_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 459
+Info (12128): Elaborating entity "player_shots_block" for hierarchy "player_shots_block:player_shot_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 480
 Info (12128): Elaborating entity "player_shot_moveCollision" for hierarchy "player_shots_block:player_shot_inst|player_shot_moveCollision:player_shot_mv_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shots_block.sv Line: 47
 Info (12128): Elaborating entity "square_object" for hierarchy "player_shots_block:player_shot_inst|square_object:player_shot_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/player/player_shots_block.sv Line: 64
-Info (12128): Elaborating entity "score_block" for hierarchy "score_block:score_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 472
+Info (12128): Elaborating entity "score_block" for hierarchy "score_block:score_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 493
 Info (12128): Elaborating entity "square_object" for hierarchy "score_block:score_inst|square_object:score_sq_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/score/score_block.sv Line: 39
 Info (12128): Elaborating entity "scoreBitMap" for hierarchy "score_block:score_inst|scoreBitMap:score_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/score/score_block.sv Line: 55
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "number_bitmap" into its bus
-Info (12128): Elaborating entity "player_life_block" for hierarchy "player_life_block:life_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 486
+Info (12128): Elaborating entity "player_life_block" for hierarchy "player_life_block:life_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 507
 Info (12128): Elaborating entity "square_object" for hierarchy "player_life_block:life_inst|square_object:player_life_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player_life_block.sv Line: 42
 Info (12128): Elaborating entity "playerLifeBitMap" for hierarchy "player_life_block:life_inst|playerLifeBitMap:life_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/player_life_block.sv Line: 56
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
-Info (12128): Elaborating entity "start_screen" for hierarchy "start_screen:start_screen_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 499
+Info (12128): Elaborating entity "start_screen" for hierarchy "start_screen:start_screen_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 520
 Info (12128): Elaborating entity "square_object" for hierarchy "start_screen:start_screen_inst|square_object:keyStart_sq_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv Line: 36
 Info (12128): Elaborating entity "keyStartBitMap" for hierarchy "start_screen:start_screen_inst|keyStartBitMap:key_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv Line: 47
 Info (12128): Elaborating entity "square_object" for hierarchy "start_screen:start_screen_inst|square_object:space_sq_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv Line: 72
@@ -4163,20 +4163,20 @@ Info (12128): Elaborating entity "keyCreditBitMap" for hierarchy "start_screen:s
 Info (12128): Elaborating entity "square_object" for hierarchy "start_screen:start_screen_inst|square_object:names_sq_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv Line: 151
 Info (12128): Elaborating entity "namesBitMap" for hierarchy "start_screen:start_screen_inst|namesBitMap:names_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv Line: 162
 Info (12128): Elaborating entity "start_screen_mux" for hierarchy "start_screen:start_screen_inst|start_screen_mux:start_mux_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/start_screen.sv Line: 178
-Info (12128): Elaborating entity "end_screen" for hierarchy "end_screen:end_screen_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 512
+Info (12128): Elaborating entity "end_screen" for hierarchy "end_screen:end_screen_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 533
 Info (12128): Elaborating entity "gameOverBitMap" for hierarchy "end_screen:end_screen_inst|gameOverBitMap:gameOver_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/end_screen/end_screen.sv Line: 90
 Warning (10202): Verilog HDL Declaration warning at gameOverBitMap.sv(25): vector has more than 2**16 bits File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/end_screen/gameOverBitMap.sv Line: 25
 Warning (10202): Verilog HDL Declaration warning at gameOverBitMap.sv(26): vector has more than 2**16 bits File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/end_screen/gameOverBitMap.sv Line: 26
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
-Info (12128): Elaborating entity "credit_block" for hierarchy "credit_block:credit_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 526
+Info (12128): Elaborating entity "credit_block" for hierarchy "credit_block:credit_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 547
 Info (12128): Elaborating entity "square_object" for hierarchy "credit_block:credit_inst|square_object:credit_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/credit_block.sv Line: 43
 Info (12128): Elaborating entity "shmidth" for hierarchy "credit_block:credit_inst|shmidth:smidth_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/credit_block.sv Line: 52
 Info (12128): Elaborating entity "creditBitMap" for hierarchy "credit_block:credit_inst|creditBitMap:credit_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/start_screen/credit_block.sv Line: 66
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
-Info (12128): Elaborating entity "high_score" for hierarchy "high_score:high_score_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 540
+Info (12128): Elaborating entity "high_score" for hierarchy "high_score:high_score_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 561
 Info (12128): Elaborating entity "highScoreBitMap" for hierarchy "high_score:high_score_inst|highScoreBitMap:highScore_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/score/high_score.sv Line: 55
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "number_bitmap" into its bus
-Info (12128): Elaborating entity "titles_block" for hierarchy "titles_block:titles_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 552
+Info (12128): Elaborating entity "titles_block" for hierarchy "titles_block:titles_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 573
 Info (12128): Elaborating entity "square_object" for hierarchy "titles_block:titles_inst|square_object:high_score_sq_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/titles/titles_block.sv Line: 44
 Info (12128): Elaborating entity "highScoreTitleBitMap" for hierarchy "titles_block:titles_inst|highScoreTitleBitMap:highScore_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/titles/titles_block.sv Line: 55
 Info (12128): Elaborating entity "square_object" for hierarchy "titles_block:titles_inst|square_object:score_sq_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/titles/titles_block.sv Line: 88
@@ -4184,16 +4184,16 @@ Info (12128): Elaborating entity "scoreTitleBitMap" for hierarchy "titles_block:
 Info (12128): Elaborating entity "creditsTitleBitMap" for hierarchy "titles_block:titles_inst|creditsTitleBitMap:credit_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/titles/titles_block.sv Line: 137
 Info (12128): Elaborating entity "livesTitleBitMap" for hierarchy "titles_block:titles_inst|livesTitleBitMap:lives_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/titles/titles_block.sv Line: 176
 Info (12128): Elaborating entity "titles_mux" for hierarchy "titles_block:titles_inst|titles_mux:title_mux_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/titles/titles_block.sv Line: 191
-Info (12128): Elaborating entity "bonus_ship" for hierarchy "bonus_ship:bonus_ship_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 569
+Info (12128): Elaborating entity "bonus_ship" for hierarchy "bonus_ship:bonus_ship_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 590
 Info (12128): Elaborating entity "random" for hierarchy "bonus_ship:bonus_ship_inst|random:rnd_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonus_ship.sv Line: 49
 Info (12128): Elaborating entity "bonusShip_moveCollision" for hierarchy "bonus_ship:bonus_ship_inst|bonusShip_moveCollision:bonus_mov_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonus_ship.sv Line: 73
 Info (12128): Elaborating entity "square_object" for hierarchy "bonus_ship:bonus_ship_inst|square_object:bonus_ship_sq" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonus_ship.sv Line: 91
 Info (12128): Elaborating entity "bonusShipBitMap" for hierarchy "bonus_ship:bonus_ship_inst|bonusShipBitMap:bonus_ship_map_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/bonus_ship/bonus_ship.sv Line: 102
-Info (12128): Elaborating entity "volume_display" for hierarchy "volume_display:vol_dis_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 581
+Info (12128): Elaborating entity "volume_display" for hierarchy "volume_display:vol_dis_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 602
 Info (12128): Elaborating entity "volumeTitleBitMap" for hierarchy "volume_display:vol_dis_inst|volumeTitleBitMap:volBitMap_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/volume_display.sv Line: 65
 Info (12128): Elaborating entity "volumeOnOffBitMap" for hierarchy "volume_display:vol_dis_inst|volumeOnOffBitMap:onOffBitMap_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/sv_files/audio/volume_display.sv Line: 104
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "object_colors" into its bus
-Info (12128): Elaborating entity "back_ground_draw" for hierarchy "back_ground_draw:back_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 591
+Info (12128): Elaborating entity "back_ground_draw" for hierarchy "back_ground_draw:back_inst" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 612
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_up14.tdf
     Info (12023): Found entity 1: altsyncram_up14 File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/altsyncram_up14.tdf Line: 32
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_97a.tdf
@@ -4220,7 +4220,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_drb File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/db/cmpr_drb.tdf Line: 23
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2021.09.29.12:57:39 Progress: Loading sld0478a87f/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2021.10.07.19:23:31 Progress: Loading sld0478a87f/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -4383,7 +4383,7 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 128
     Warning (13040): bidirectional pin "GPIO[32]" has no driver File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 128
     Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 128
-Info (13000): Registers with preset signals will power-up high File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_moveCollision.sv Line: 86
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/output_files/alien_shot_moveCollision.sv Line: 81
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "GPIO[9]~synth" File: C:/Users/Shai/OneDrive/Documents/fpga/fpga_projects/space_invader_lite/DE10_LITE_Golden_Top.v Line: 128
@@ -4425,10 +4425,10 @@ Info (21057): Implemented 40720 device resources after synthesis - the final res
     Info (21065): Implemented 1 PLLs
     Info (21070): Implemented 1 User Flash Memory blocks
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 108 warnings
-    Info: Peak virtual memory: 5181 megabytes
-    Info: Processing ended: Wed Sep 29 13:02:47 2021
-    Info: Elapsed time: 00:06:42
-    Info: Total CPU time (on all processors): 00:07:03
+    Info: Peak virtual memory: 5184 megabytes
+    Info: Processing ended: Thu Oct 07 19:28:44 2021
+    Info: Elapsed time: 00:06:51
+    Info: Total CPU time (on all processors): 00:07:14
 
 
 +------------------------------------------+
