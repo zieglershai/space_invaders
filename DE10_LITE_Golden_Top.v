@@ -155,6 +155,7 @@ wire fireCollision;
 wire collision_alienShot_player;
 wire collision_fire_bonusShip; // collision between bonus ship and player fire
 wire alienplayer_FireCollision; // used to trigger bonus ship when alien was hit
+wire collisionShield;
 
 /* game stae wires 
 goes from the controller to the modules*/
@@ -228,6 +229,11 @@ wire [7:0]titlesRGB;
 wire bounusShipDR;
 wire [7:0]bounusShipRGB;
 
+wire shieldDR;
+wire [7:0] shieldRGB;
+//assign shieldDR = 1'b0;
+//assign shieldRGB = 8'b0;
+
 wire audioDR;
 wire [7:0]audioRGB;
 
@@ -297,6 +303,7 @@ audio audio_inst(
 	 .collision_fire_alien(alienplayer_FireCollision),
 	 .bonusFireCollision(collision_fire_bonusShip),
 	 .bonus_ship_alive(bonus_ship_alive),
+	 .alienMiddleY(alienMiddleY),
 	 .LRCLK(LRCLK),
     .SCLK(SCLK),
     .SD(SD)
@@ -364,11 +371,13 @@ objects_mux mux_inst(
                             .creditCoinsRGB(creditCoinsRGB),   
                             .creditTitleDR(/*creditTitleDR*/),  // unused - moved to titles block
                             .creditTitleRGB(/*creditTitleRGB*/),  // unused - moved to titles block
-                            .bounusShipDR(bounusShipDR),
+                            .bounusShipDR(bounusShipDR),   
+									 .bounusShipRGB(bounusShipRGB), 	
+									 .shieldDR(shieldDR),
+									 .shieldRGB(shieldRGB),
 									 .audioDR(audioDR),
 									 .audioRGB(audioRGB),
-                            .bounusShipRGB(bounusShipRGB), 
-                            .backGroundRGB(BG_RGB), 
+									 .backGroundRGB(BG_RGB), 
                             .RGBOut(RGB)
 );
 
@@ -387,6 +396,7 @@ game_controller game_cnt_inst (
                             .keyStartN(key_start),
                             .credits(credits),
                             .drawing_request_bonusShip(bounusShipDR),
+									 .drawing_request_shieldDR(shieldDR),
                             .alienType(alienType),
                             .SingleHitPulse(/*SingleHitPulse*/), 
                             .collision_player_boarder(collisionPlayerBoarder),
@@ -397,6 +407,7 @@ game_controller game_cnt_inst (
                             .collision_alienShot_boarder(/*collision_alienShot_boarder*/),
                             .collision_alienShot_player(collision_alienShot_player),
                             .collision_alienShot_all(alienFireCollision),
+									 .collisionShield(collisionShield),
                             .restart(/*restart*/), 
                             .scoreUpdate(scoreUpdate), 
                             .standBy(standBy),
@@ -588,6 +599,28 @@ bonus_ship bonus_ship_inst(
                             .bonus_ship_DR(bounusShipDR),
                             .bonus_ship_RGB(bounusShipRGB)
 );
+
+
+shield_block shield_block_inst(
+					.clk(clk),
+					.resetN(resetN),
+					.startOfFrame(startOfFrame),
+					.standBy(standBy),
+					.gameEnded(gameEnded),
+					.collisionShield(collisionShield),  //player was hit
+					.pixelX(pixelX),
+					.pixelY(pixelY),
+					.shieldDR(shieldDR),
+					.shieldRGB(shieldRGB)
+
+);
+
+
+
+
+
+
+
 
 volume_display vol_dis_inst(
 									.clk(clk),

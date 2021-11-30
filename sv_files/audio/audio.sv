@@ -7,6 +7,7 @@ module audio(
 		input collision_fire_alien,
 		input bonusFireCollision,
 		input bonus_ship_alive,
+		input alienMiddleY,
 		output LRCLK,
 		output SCLK,
 		output SD
@@ -39,7 +40,7 @@ I2S
 
 
 
-enum logic [2:0] {sIdle, splayer_explode, sfire, sinvader, sufo} pres_st, next_st, prev_st;
+enum logic [2:0] {sIdle, splayer_explode, sfire, sinvader, sufo, sSoundtrack} pres_st, next_st, prev_st;
 
 
 always_ff @(posedge MCLK or negedge resetN) begin
@@ -56,7 +57,7 @@ always_ff @(posedge MCLK or negedge resetN) begin
 end
 
 always_comb begin 
-	select = 4'd0;
+	select = 4'd5;
 	next_st = pres_st;
 	//new_trackN = 1'd1;
 	new_trackN = prev_st == pres_st; // there is a new track if we switch state
@@ -78,6 +79,36 @@ always_comb begin
 			else if (bonus_ship_alive) begin
 				select = 4'd4;
 				next_st = sufo;
+			end
+			else if (alienMiddleY >= 256 )begin // if alien is low on the screen
+				select = 4'd0;
+				next_st = sSoundtrack;
+			end
+		end
+		
+		/* enable soundtrack when matrix reach certain height*/
+		
+		sSoundtrack: begin
+			//new_trackN = 1'd0;
+			if (collision_alienShot_player) begin
+				select = 4'd1;
+				next_st = splayer_explode;
+			end
+			else if (new_fire) begin
+				select = 4'd2;
+				next_st = sfire;
+			end
+			else if (collision_fire_alien) begin
+				select = 4'd3;
+				next_st = sinvader;
+			end
+			else if (bonus_ship_alive) begin
+				select = 4'd4;
+				next_st = sufo;
+			end
+			else if (alienMiddleY < 256)begin
+				select = 4'd5;
+				next_st = sIdle;
 			end
 		end
 		

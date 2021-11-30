@@ -13,20 +13,22 @@ pres_st.sOver 1 0 0 1 0
 pres_st.sNewGame 0 0 0 1 1 
 
 State Machine - |DE10_LITE_Golden_Top|audio:audio_inst|prev_st
-Name prev_st.sinvader prev_st.sfire prev_st.splayer_explode prev_st.sIdle prev_st.sufo 
-prev_st.sIdle 0 0 0 0 0 
-prev_st.splayer_explode 0 0 1 1 0 
-prev_st.sfire 0 1 0 1 0 
-prev_st.sinvader 1 0 0 1 0 
-prev_st.sufo 0 0 0 1 1 
+Name prev_st.sSoundtrack prev_st.sufo prev_st.sinvader prev_st.sfire prev_st.splayer_explode prev_st.sIdle 
+prev_st.sIdle 0 0 0 0 0 0 
+prev_st.splayer_explode 0 0 0 0 1 1 
+prev_st.sfire 0 0 0 1 0 1 
+prev_st.sinvader 0 0 1 0 0 1 
+prev_st.sufo 0 1 0 0 0 1 
+prev_st.sSoundtrack 1 0 0 0 0 1 
 
 State Machine - |DE10_LITE_Golden_Top|audio:audio_inst|pres_st
-Name pres_st.sinvader pres_st.sfire pres_st.splayer_explode pres_st.sIdle pres_st.sufo 
-pres_st.sIdle 0 0 0 0 0 
-pres_st.splayer_explode 0 0 1 1 0 
-pres_st.sfire 0 1 0 1 0 
-pres_st.sinvader 1 0 0 1 0 
-pres_st.sufo 0 0 0 1 1 
+Name pres_st.sSoundtrack pres_st.sufo pres_st.sinvader pres_st.sfire pres_st.splayer_explode pres_st.sIdle 
+pres_st.sIdle 0 0 0 0 0 0 
+pres_st.splayer_explode 0 0 0 0 1 1 
+pres_st.sfire 0 0 0 1 0 1 
+pres_st.sinvader 0 0 1 0 0 1 
+pres_st.sufo 0 1 0 0 0 1 
+pres_st.sSoundtrack 1 0 0 0 0 1 
 
 State Machine - |DE10_LITE_Golden_Top|audio:audio_inst|I2S:I2S_inst|semi_ROM:semi_ROM_inst|ROM_mux:aud_mux_inst|my_ROM:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|read_state
 Name read_state.READ_STATE_CLEAR read_state.READ_STATE_FINAL read_state.READ_STATE_READY read_state.READ_STATE_DUMMY read_state.READ_STATE_SETUP read_state.READ_STATE_ADDR read_state.READ_STATE_IDLE 

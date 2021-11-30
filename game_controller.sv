@@ -12,6 +12,7 @@ module game_controller	(
 			input	logic	drawing_request_boarders,
 			input	logic	drawing_request_playerShot,
 			input	logic	drawing_request_alienShot,
+			input	logic drawing_request_shieldDR,
        // add the box here 
 			input	logic	drawing_request_player,
 			input logic gameLose,
@@ -35,7 +36,8 @@ module game_controller	(
 			output logic standBy,
 			output logic startGame,
 			output logic gameEnded,
-			output logic collision_fire_bonusShip
+			output logic collision_fire_bonusShip,
+			output logic collisionShield
 
 
 			
@@ -44,13 +46,13 @@ wire collision_alien_player;
 logic collision;
 assign collision_alien_boarder = ( drawing_request_alienMatrix &&  drawing_request_boarders );
 assign collision_alien_player = ( drawing_request_alienMatrix &&  drawing_request_player );
-
+assign collisionShield = drawing_request_shieldDR && ( drawing_request_alienShot || drawing_request_playerShot);
 assign collision_player_boarder = (drawing_request_boarders &&  drawing_request_player);
-assign collision_fire_boarder = (drawing_request_boarders &&  drawing_request_playerShot);
+assign collision_fire_boarder = ((drawing_request_boarders||drawing_request_shieldDR)&&  drawing_request_playerShot); // shot with border or shield
 assign collision_fire_alien = (drawing_request_alienMatrix &&  drawing_request_playerShot);
 assign collision_fire_bonusShip = (drawing_request_bonusShip &&  drawing_request_playerShot);
 assign collision_playerFire = (collision_fire_boarder || collision_fire_alien || collision_fire_bonusShip);
-assign collision_alienShot_boarder = drawing_request_alienShot && drawing_request_boarders;
+assign collision_alienShot_boarder = drawing_request_alienShot && (drawing_request_boarders ||drawing_request_shieldDR) ; // shot with border or shield
 assign collision_alienShot_player = (drawing_request_alienShot && drawing_request_player);
 assign collision_alienShot_all = collision_alienShot_player || collision_alienShot_boarder;
 

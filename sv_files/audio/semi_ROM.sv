@@ -60,6 +60,7 @@ invader_ROM invader_ROM_inst(
 
 
 
+// ROM contain both ufo and soundtrack sound
 logic [15:0] ROM_dout;
 logic [17:0] ROM_depth;
 logic [31:0] ROM_repeats;
@@ -101,8 +102,17 @@ always_comb begin
 	end
 
 	// using ROM
-	else begin
+	else if (select == 4'd0 || select == 4'd4) begin // soundtrack or ufo part
 		dout[15:0]= ROM_dout[15:0];
+		depth = ROM_depth;
+		repeats = ROM_repeats;
+	end
+	
+	/*
+	insert this part to enable mute sound while matrix high
+	*/
+	else begin // for silence part  -can be also select == 5
+		dout[15:0]= 16'd0;
 		depth = ROM_depth;
 		repeats = ROM_repeats;
 	end

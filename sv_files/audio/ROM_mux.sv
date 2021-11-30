@@ -74,13 +74,13 @@ parameter [31:0] ufo_repeats = 32'd2; // starting position in mif file
 parameter [31:0] soundtrack_repeats = 31'd2; // starting position in mif file
 
 always_comb begin // decide which sound to read from ROM
-	if (select == 4'd0) begin // output 
+	if (select == 4'd0) begin // soundtrack enable 
 		read_from = adress[17:1] + offset_soundtrack;
 		depth = soundtrack_depth;
 		repeats = soundtrack_repeats;
 		
 	end
-	else begin
+	else begin // ufo enable
 		read_from = adress[17:1] + offset_ufo;
 		depth = ufo_depth;
 		repeats = ufo_repeats;

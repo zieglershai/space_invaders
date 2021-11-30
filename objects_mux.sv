@@ -72,7 +72,11 @@ module	objects_mux	(
 					input		logic	[7:0] audioRGB,
 			// bounus Ship 
 					input    logic bounusShipDR, // box of numbers
-					input		logic	[7:0] bounusShipRGB, 
+					input		logic	[7:0] bounusShipRGB,
+				
+					input    logic shieldDR, // box of numbers
+					input		logic	[7:0] shieldRGB,	
+
 
 					
 					
@@ -139,7 +143,9 @@ begin
 		else if (bounusShipDR == 1'b1)
 			RGBOut <= bounusShipRGB;
 
-
+		else if (shieldDR == 1'b1)
+			RGBOut <= shieldRGB;
+		
 		else 
 			RGBOut <= backGroundRGB ; // last priority 
 			
