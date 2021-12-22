@@ -9,6 +9,8 @@ module shield_block(
 					input collisionShield,  //player was hit
 					input [10:0] pixelX,
 					input [10:0] pixelY,
+					input collisionShield_alien,
+
 					
 					output shieldDR,
 					output [7:0] shieldRGB
@@ -48,6 +50,7 @@ shieldBitMap shield_map_inst(
 					.offsetY(shieldOffsetY),
 					.InsideRectangle(InsideRectangle),
 					.collision(collisionShield),
+					.collisionShield_alien(collisionShield_alien),
 					.playGame(playGame),
 					.drawingRequest(shieldDR),
 					.RGBout(shieldRGB)

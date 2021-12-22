@@ -13,6 +13,7 @@ module	shieldBitMap	(
 					input logic collision, // if current alien was shot,
 					//input logic startOfFrame, for future purpose - if need to disable explotion til new frame
 					input logic playGame, // wait for game to begin
+					input logic collisionShield_alien,
 					
 					output	logic	drawingRequest, //output that the pixel should be dispalyed 
 					output	logic	[7:0] RGBout  //rgb value from the bitmap 
@@ -27,6 +28,7 @@ module	shieldBitMap	(
 
 // shield array
 logic unsigned [0:3] [0:15] [0:31] shields;
+logic [0:3] shieldLive;
 
 
 
@@ -66,6 +68,7 @@ begin
 		shields [1] <= initial_shield;
 		shields [2] <= initial_shield;
 		shields [3] <= initial_shield;
+		shieldLive <= 4'b1111;
 
 		
 
@@ -81,7 +84,11 @@ begin
 			// even - shield
 				
 			// we removed offsetX[6] to divide by 2 and ignore the spaces when we decide whice shield to look
-			if (collision)begin // if we got hit by fire destroy radius is 4 pixel
+			if (collisionShield_alien) begin
+				shieldLive [shield_number] <= 1'b0;
+			end
+			
+			else if (collision)begin // if we got hit by fire destroy radius is 4 pixel
 			/*
 			row
 			1:	|||||||||||||||||||*||||||||||||||||||
@@ -108,40 +115,40 @@ begin
 				// 3rd row 
 				//shields [shield_number][shield_row - 5'd2][shield_col - 6'd2] <= 1'b0;
 				//shields [shield_number][shield_row - 5'd2][shield_col - 6'd1] <= 1'b0;
-				//shields [shield_number][shield_row - 5'd2][shield_col + 6'd0] <= 1'b0;
+				shields [shield_number][shield_row - 5'd2][shield_col + 6'd0] <= 1'b0;
 				//shields [shield_number][shield_row - 5'd2][shield_col + 6'd1] <= 1'b0;
 				//shields [shield_number][shield_row - 5'd2][shield_col + 6'd2] <= 1'b0;
 				//4th row
 				//shields [shield_number][shield_row - 5'd1][shield_col - 6'd3] <= 1'b0;
 				//shields [shield_number][shield_row - 5'd1][shield_col - 6'd2] <= 1'b0;
-				//shields [shield_number][shield_row - 5'd1][shield_col - 6'd1] <= 1'b0;
+				shields [shield_number][shield_row - 5'd1][shield_col - 6'd1] <= 1'b0;
 				shields [shield_number][shield_row - 5'd1][shield_col + 6'd0] <= 1'b0;
-				//shields [shield_number][shield_row - 5'd1][shield_col + 6'd1] <= 1'b0;
+				shields [shield_number][shield_row - 5'd1][shield_col + 6'd1] <= 1'b0;
 				//shields [shield_number][shield_row - 5'd1][shield_col + 6'd2] <= 1'b0;
 				//shields [shield_number][shield_row - 5'd1][shield_col + 6'd3] <= 1'b0;
 				// 5th row
 				//shields [shield_number][shield_row + 5'd0][shield_col - 6'd4] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd0][shield_col - 6'd3] <= 1'b0;
-				//shields [shield_number][shield_row + 5'd0][shield_col - 6'd2] <= 1'b0;
+				shields [shield_number][shield_row + 5'd0][shield_col - 6'd2] <= 1'b0;
 				shields [shield_number][shield_row + 5'd0][shield_col - 6'd1] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd0][shield_col + 6'd0] <= 1'b0;
 				shields [shield_number][shield_row + 5'd0][shield_col + 6'd1] <= 1'b0;
-				//shields [shield_number][shield_row + 5'd0][shield_col + 6'd2] <= 1'b0;
+				shields [shield_number][shield_row + 5'd0][shield_col + 6'd2] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd0][shield_col + 6'd3] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd0][shield_col + 6'd4] <= 1'b0;
 
 				// 6th row
 			//	shields [shield_number][shield_row + 5'd1][shield_col - 6'd3] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd1][shield_col - 6'd2] <= 1'b0;
-				//shields [shield_number][shield_row + 5'd1][shield_col - 6'd1] <= 1'b0;
+				shields [shield_number][shield_row + 5'd1][shield_col - 6'd1] <= 1'b0;
 				shields [shield_number][shield_row + 5'd1][shield_col + 6'd0] <= 1'b0;
-				//shields [shield_number][shield_row + 5'd1][shield_col + 6'd1] <= 1'b0;
+				shields [shield_number][shield_row + 5'd1][shield_col + 6'd1] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd1][shield_col + 6'd2] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd1][shield_col + 6'd3] <= 1'b0;
 				//7th row
 				//shields [shield_number][shield_row + 5'd2][shield_col - 6'd2] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd2][shield_col - 6'd1] <= 1'b0;
-			//	shields [shield_number][shield_row + 5'd2][shield_col + 6'd0] <= 1'b0;
+				shields [shield_number][shield_row + 5'd2][shield_col + 6'd0] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd2][shield_col + 6'd1] <= 1'b0;
 				//shields [shield_number][shield_row + 5'd2][shield_col + 6'd2] <= 1'b0;
 
@@ -165,7 +172,7 @@ shield_col = offsetX[5:1];
 is_shield = !offsetX[6];
 
 // set drwaing request based on if the pixel alive or dead (it's value)
-drawingRequest = InsideRectangle & shields [shield_number][shield_row][shield_col] & is_shield & playGame;
+drawingRequest = InsideRectangle & shields [shield_number][shield_row][shield_col] & is_shield & playGame & shieldLive [shield_number];
 RGBout = 8'h5c;
 end
 

@@ -84,7 +84,7 @@ module DE10_LITE_Golden_Top(
     //////////// LED: 3.3-V LVTTL //////////
 `ifdef ENABLE_LED
     //output           [9:0]      LEDR,
-	 output           [3:0]      LEDR,
+	 output           [5:0]      LEDR,
 
 `endif
 
@@ -156,6 +156,8 @@ wire collision_alienShot_player;
 wire collision_fire_bonusShip; // collision between bonus ship and player fire
 wire alienplayer_FireCollision; // used to trigger bonus ship when alien was hit
 wire collisionShield;
+wire collisionShield_alien;
+wire collision_player_hurt;
 
 /* game stae wires 
 goes from the controller to the modules*/
@@ -270,6 +272,12 @@ assign vol_btn = GPIO[13];
 wire btn_1;
 assign btn_1 = GPIO[25];
 
+
+// gameended debug
+assign LEDR[4] = gameEnded;
+assign LEDR[5] = gameLose;
+
+
 // wires for audio 
 wire LRCLK;
 wire SCLK;
@@ -300,7 +308,7 @@ audio audio_inst(
     .resetN(resetN), //adjust to new connector
 	 .new_fire(newFire),
 	 .collision_alienShot_player(collision_alienShot_player),
-	 .collision_fire_alien(alienplayer_FireCollision),
+	 .collision_fire_alien(alienplayer_FireCollision||collision_fire_bonusShip),
 	 .bonusFireCollision(collision_fire_bonusShip),
 	 .bonus_ship_alive(bonus_ship_alive),
 	 .alienMiddleY(alienMiddleY),
@@ -408,6 +416,8 @@ game_controller game_cnt_inst (
                             .collision_alienShot_player(collision_alienShot_player),
                             .collision_alienShot_all(alienFireCollision),
 									 .collisionShield(collisionShield),
+									 .collisionShield_alien(collisionShield_alien),
+									 .collision_player_hurt(collision_player_hurt),
                             .restart(/*restart*/), 
                             .scoreUpdate(scoreUpdate), 
                             .standBy(standBy),
@@ -509,7 +519,8 @@ player_life_block life_inst(
                             .startOfFrame(startOfFrame),
                             .standBy(standBy),
                             .gameEnded(gameEnded),
-                            .collisionAlienShot_Player(collision_alienShot_player),
+									 .collisionAlienShot_Player(collision_player_hurt),
+									 //.collisionAlienShot_Player(collision_alienShot_player), // 13/12 - player doesnt died in collison with matrix
                             .pixelX(pixelX),
                             .pixelY(pixelY),        
                             .playerLifeDR(lifeDR),
@@ -607,14 +618,20 @@ shield_block shield_block_inst(
 					.startOfFrame(startOfFrame),
 					.standBy(standBy),
 					.gameEnded(gameEnded),
-					.collisionShield(collisionShield),  //player was hit
+					.collisionShield(collisionShield),  
 					.pixelX(pixelX),
 					.pixelY(pixelY),
 					.shieldDR(shieldDR),
-					.shieldRGB(shieldRGB)
+					.shieldRGB(shieldRGB),
+			      .collisionShield_alien(collisionShield_alien)
+
 
 );
 
+
+/////////when removing shield block add these logics:
+//assign shieldDR = 1'b0;
+//assign shieldRGB = 8'b0;
 
 
 

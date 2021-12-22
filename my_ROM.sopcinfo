@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="my_ROM" kind="my_ROM" version="1.0" fabric="QSYS">
  <!-- Format version 17.0 595 (Future versions may contain additional information.) -->
- <!-- 2021.11.30.21:56:05 -->
+ <!-- 2021.12.14.19:18:20 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1638302165</value>
+  <value>1639502300</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>

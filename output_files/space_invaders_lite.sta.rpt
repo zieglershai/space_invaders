@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for space_invaders_lite
-Tue Nov 30 22:08:19 2021
+Tue Dec 14 19:14:42 2021
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -94,14 +94,14 @@ agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 3.50        ;
+; Average used               ; 3.37        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  50.0%      ;
-;     Processor 3            ;  50.0%      ;
-;     Processors 4-6         ;  50.0%      ;
+;     Processor 2            ;  47.3%      ;
+;     Processor 3            ;  47.3%      ;
+;     Processors 4-6         ;  47.3%      ;
 +----------------------------+-------------+
 
 
@@ -114,13 +114,13 @@ agreement for further details.
 +---------------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------+
 
 
-+----------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                       ;
-+-----------+-----------------+---------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name          ; Note ;
-+-----------+-----------------+---------------------+------+
-; 90.51 MHz ; 90.51 MHz       ; altera_reserved_tck ;      ;
-+-----------+-----------------+---------------------+------+
++-----------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                        ;
++------------+-----------------+---------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name          ; Note ;
++------------+-----------------+---------------------+------+
+; 104.69 MHz ; 104.69 MHz      ; altera_reserved_tck ;      ;
++------------+-----------------+---------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -129,7 +129,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 45.204 ; 0.000         ;
+; altera_reserved_tck ; 45.224 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -138,7 +138,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.326 ; 0.000         ;
+; altera_reserved_tck ; 0.267 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -147,7 +147,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 94.806 ; 0.000         ;
+; altera_reserved_tck ; 95.609 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -156,7 +156,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.866 ; 0.000         ;
+; altera_reserved_tck ; 0.860 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -165,7 +165,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+--------------------+
 ; Clock               ; Slack  ; End Point TNS      ;
 +---------------------+--------+--------------------+
-; altera_reserved_tck ; 49.482 ; 0.000              ;
+; altera_reserved_tck ; 49.477 ; 0.000              ;
 +---------------------+--------+--------------------+
 
 
@@ -176,18 +176,18 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 2
 Shortest Synchronizer Chain: 4 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 342.828 ns
+Worst Case Available Settling Time: 342.706 ns
 
 
 
 
-+----------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                        ;
-+-----------+-----------------+---------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name          ; Note ;
-+-----------+-----------------+---------------------+------+
-; 99.68 MHz ; 99.68 MHz       ; altera_reserved_tck ;      ;
-+-----------+-----------------+---------------------+------+
++-----------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                         ;
++------------+-----------------+---------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name          ; Note ;
++------------+-----------------+---------------------+------+
+; 115.82 MHz ; 115.82 MHz      ; altera_reserved_tck ;      ;
++------------+-----------------+---------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -196,7 +196,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 45.676 ; 0.000         ;
+; altera_reserved_tck ; 45.683 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -205,7 +205,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.296 ; 0.000         ;
+; altera_reserved_tck ; 0.256 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -214,7 +214,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 95.303 ; 0.000         ;
+; altera_reserved_tck ; 96.027 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -223,7 +223,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.793 ; 0.000         ;
+; altera_reserved_tck ; 0.790 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -232,7 +232,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+-------------------+
 ; Clock               ; Slack  ; End Point TNS     ;
 +---------------------+--------+-------------------+
-; altera_reserved_tck ; 49.501 ; 0.000             ;
+; altera_reserved_tck ; 49.498 ; 0.000             ;
 +---------------------+--------+-------------------+
 
 
@@ -243,7 +243,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 2
 Shortest Synchronizer Chain: 4 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 343.479 ns
+Worst Case Available Settling Time: 343.371 ns
 
 
 
@@ -253,7 +253,7 @@ Worst Case Available Settling Time: 343.479 ns
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 47.916 ; 0.000         ;
+; altera_reserved_tck ; 47.880 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -262,7 +262,7 @@ Worst Case Available Settling Time: 343.479 ns
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.149 ; 0.000         ;
+; altera_reserved_tck ; 0.117 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -271,7 +271,7 @@ Worst Case Available Settling Time: 343.479 ns
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 97.269 ; 0.000         ;
+; altera_reserved_tck ; 97.668 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -280,7 +280,7 @@ Worst Case Available Settling Time: 343.479 ns
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.411 ; 0.000         ;
+; altera_reserved_tck ; 0.410 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -289,7 +289,7 @@ Worst Case Available Settling Time: 343.479 ns
 +---------------------+--------+-------------------+
 ; Clock               ; Slack  ; End Point TNS     ;
 +---------------------+--------+-------------------+
-; altera_reserved_tck ; 49.386 ; 0.000             ;
+; altera_reserved_tck ; 49.387 ; 0.000             ;
 +---------------------+--------+-------------------+
 
 
@@ -300,7 +300,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 2
 Shortest Synchronizer Chain: 4 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 346.886 ns
+Worst Case Available Settling Time: 346.790 ns
 
 
 
@@ -310,8 +310,8 @@ Worst Case Available Settling Time: 346.886 ns
 +----------------------+--------+-------+----------+---------+---------------------+
 ; Clock                ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack     ; 45.204 ; 0.149 ; 94.806   ; 0.411   ; 49.386              ;
-;  altera_reserved_tck ; 45.204 ; 0.149 ; 94.806   ; 0.411   ; 49.386              ;
+; Worst-case Slack     ; 45.224 ; 0.117 ; 95.609   ; 0.410   ; 49.387              ;
+;  altera_reserved_tck ; 45.224 ; 0.117 ; 95.609   ; 0.410   ; 49.387              ;
 ; Design-wide TNS      ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  altera_reserved_tck ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
 +----------------------+--------+-------+----------+---------+---------------------+
@@ -326,6 +326,8 @@ Worst Case Available Settling Time: 346.886 ns
 ; LEDR[1]             ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[2]             ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[3]             ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDR[4]             ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDR[5]             ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; VGA_B[0]            ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; VGA_B[1]            ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; VGA_B[2]            ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -489,6 +491,8 @@ Worst Case Available Settling Time: 346.886 ns
 ; LEDR[1]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.107 V            ; 0.46 V                               ; 0.279 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.107 V           ; 0.46 V                              ; 0.279 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[2]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[3]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.107 V            ; 0.46 V                               ; 0.279 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.107 V           ; 0.46 V                              ; 0.279 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
+; LEDR[4]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
+; LEDR[5]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; VGA_B[0]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; VGA_B[1]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; VGA_B[2]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
@@ -569,6 +573,8 @@ Worst Case Available Settling Time: 346.886 ns
 ; LEDR[1]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0592 V           ; 0.248 V                              ; 0.172 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0592 V          ; 0.248 V                             ; 0.172 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; LEDR[2]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; LEDR[3]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0592 V           ; 0.248 V                              ; 0.172 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0592 V          ; 0.248 V                             ; 0.172 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
+; LEDR[4]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
+; LEDR[5]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; VGA_B[0]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; VGA_B[1]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; VGA_B[2]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
@@ -649,6 +655,8 @@ Worst Case Available Settling Time: 346.886 ns
 ; LEDR[1]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[2]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[3]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; LEDR[4]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; LEDR[5]             ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; VGA_B[0]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; VGA_B[1]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; VGA_B[2]            ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
@@ -725,7 +733,7 @@ Worst Case Available Settling Time: 346.886 ns
 +---------------------+---------------------+----------+----------+----------+----------+
 ; From Clock          ; To Clock            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------+---------------------+----------+----------+----------+----------+
-; altera_reserved_tck ; altera_reserved_tck ; 9783     ; 0        ; 64       ; 0        ;
+; altera_reserved_tck ; altera_reserved_tck ; 6113     ; 0        ; 64       ; 0        ;
 +---------------------+---------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -735,7 +743,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +---------------------+---------------------+----------+----------+----------+----------+
 ; From Clock          ; To Clock            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------+---------------------+----------+----------+----------+----------+
-; altera_reserved_tck ; altera_reserved_tck ; 9783     ; 0        ; 64       ; 0        ;
+; altera_reserved_tck ; altera_reserved_tck ; 6113     ; 0        ; 64       ; 0        ;
 +---------------------+---------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -745,7 +753,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +---------------------+---------------------+----------+----------+----------+----------+
 ; From Clock          ; To Clock            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------+---------------------+----------+----------+----------+----------+
-; altera_reserved_tck ; altera_reserved_tck ; 441      ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; altera_reserved_tck ; 197      ; 0        ; 0        ; 0        ;
 +---------------------+---------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -755,7 +763,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +---------------------+---------------------+----------+----------+----------+----------+
 ; From Clock          ; To Clock            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------+---------------------+----------+----------+----------+----------+
-; altera_reserved_tck ; altera_reserved_tck ; 441      ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; altera_reserved_tck ; 197      ; 0        ; 0        ; 0        ;
 +---------------------+---------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -780,9 +788,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 3     ; 3    ;
 ; Unconstrained Input Ports       ; 10    ; 10   ;
-; Unconstrained Input Port Paths  ; 2582  ; 2582 ;
-; Unconstrained Output Ports      ; 22    ; 22   ;
-; Unconstrained Output Port Paths ; 24    ; 24   ;
+; Unconstrained Input Port Paths  ; 2580  ; 2580 ;
+; Unconstrained Output Ports      ; 24    ; 24   ;
+; Unconstrained Output Port Paths ; 27    ; 27   ;
 +---------------------------------+-------+------+
 
 
@@ -828,6 +836,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; LEDR[1]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[2]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[3]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LEDR[4]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LEDR[5]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VGA_B[0]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VGA_B[1]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VGA_B[2]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -876,6 +886,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; LEDR[1]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[2]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; LEDR[3]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LEDR[4]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LEDR[5]             ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VGA_B[0]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VGA_B[1]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VGA_B[2]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -900,7 +912,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Nov 30 22:08:01 2021
+    Info: Processing started: Tue Dec 14 19:14:26 2021
 Info: Command: quartus_sta space_invaders_lite -c space_invaders_lite
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -925,32 +937,32 @@ Critical Warning (332168): The following clock transfers have no clock uncertain
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 45.204
+Info (332146): Worst-case setup slack is 45.224
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    45.204               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.326
+    Info (332119):    45.224               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.267
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.326               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 94.806
+    Info (332119):     0.267               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 95.609
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    94.806               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.866
+    Info (332119):    95.609               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.860
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.866               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.482
+    Info (332119):     0.860               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.477
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.482               0.000 altera_reserved_tck 
+    Info (332119):    49.477               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 2 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 2
     Info (332114): Shortest Synchronizer Chain: 4 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 342.828 ns
+    Info (332114): Worst Case Available Settling Time: 342.706 ns
     Info (332114): 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -967,32 +979,32 @@ Warning (332056): PLL cross checking found inconsistent PLL clock settings:
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
-Info (332146): Worst-case setup slack is 45.676
+Info (332146): Worst-case setup slack is 45.683
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    45.676               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.296
+    Info (332119):    45.683               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.256
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.296               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 95.303
+    Info (332119):     0.256               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 96.027
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    95.303               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.793
+    Info (332119):    96.027               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.790
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.793               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.501
+    Info (332119):     0.790               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.498
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.501               0.000 altera_reserved_tck 
+    Info (332119):    49.498               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 2 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 2
     Info (332114): Shortest Synchronizer Chain: 4 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 343.479 ns
+    Info (332114): Worst Case Available Settling Time: 343.371 ns
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Warning (332060): Node: MAX10_CLK1_50 was determined to be a clock but was found without an associated clock assignment.
@@ -1006,39 +1018,39 @@ Warning (332056): PLL cross checking found inconsistent PLL clock settings:
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
-Info (332146): Worst-case setup slack is 47.916
+Info (332146): Worst-case setup slack is 47.880
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    47.916               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.149
+    Info (332119):    47.880               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.117
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.149               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 97.269
+    Info (332119):     0.117               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 97.668
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    97.269               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.411
+    Info (332119):    97.668               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.410
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.411               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.386
+    Info (332119):     0.410               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.387
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.386               0.000 altera_reserved_tck 
+    Info (332119):    49.387               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 2 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 2
     Info (332114): Shortest Synchronizer Chain: 4 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 346.886 ns
+    Info (332114): Worst Case Available Settling Time: 346.790 ns
     Info (332114): 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 5194 megabytes
-    Info: Processing ended: Tue Nov 30 22:08:19 2021
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:58
+    Info: Peak virtual memory: 5189 megabytes
+    Info: Processing ended: Tue Dec 14 19:14:42 2021
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:47
 
 
